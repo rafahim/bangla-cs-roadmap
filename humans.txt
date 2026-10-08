@@ -1,0 +1,14 @@
+/* TEAM */
+Maintainer: RA Fahim
+Role: Web Developer & Creator
+Focus: Full-stack development and educational content
+Experience: 1 year
+Location: Dhaka, Bangladesh
+Website: https://rafahim.com
+GitHub: https://github.com/rafahim
+Email: dev@rafahim.com
+Twitter/X: https://twitter.com/rafahimn
+LinkedIn: https://linkedin.com/in/rafahimn
+
+/* THANKS */
+Thanks to learners, reviewers, and open documentation communities helping make computing education accessible in Bengali.

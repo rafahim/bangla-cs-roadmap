@@ -1,0 +1,1640 @@
+[
+  {
+    "section": "00-getting-started",
+    "slug": "01-how-computers-work",
+    "title": "কম্পিউটার কীভাবে কাজ করে",
+    "explanation": "কম্পিউটারকে শুধু মনিটর বা ল্যাপটপ হিসেবে নয়, ইনপুট থেকে আউটপুট তৈরি করা সমন্বিত ব্যবস্থা হিসেবে বোঝো। কিবোর্ডে অক্ষর চাপলে input device সংকেত পাঠায়; operating system সেটি নেয়; CPU নির্দেশনা চালায়; প্রয়োজন হলে RAM-এ data বদলায়; তারপর graphics system স্ক্রিনে ফল দেখায়। কাজ দ্রুত হওয়ায় ধাপগুলো চোখে পড়ে না, কিন্তু প্রতিটির আলাদা দায়িত্ব আছে।\n\nCPU মানুষের উদ্দেশ্য বোঝে না; machine instruction, memory-র data এবং control flow অনুসরণ করে। Hardware হলো স্পর্শযোগ্য অংশ, আর software হলো যন্ত্রাংশকে কাজ করানোর program ও data। এই পার্থক্য জানলে operating system, programming, networking ও debugging-এর বিষয়গুলো পরস্পরের সঙ্গে যুক্ত করা সহজ হয়।",
+    "analogy": "রেস্টুরেন্টে অর্ডারের কথা ভাবো: ক্রেতা input দেয়, অর্ডার রান্নাঘরে পৌঁছায়, রান্নার ধাপ চলে, আর খাবার output হিসেবে আসে। কম্পিউটারেও input, processing ও output আলাদা দায়িত্ব ভাগ করে।",
+    "concepts": [
+      "Input: keyboard, mouse বা sensor থেকে data আসে।",
+      "Processing: CPU নির্দেশনা চালায়; ALU গণিত ও logic-এর কাজ করে।",
+      "RAM চলমান কাজের অস্থায়ী data রাখে; SSD/HDD ফাইল দীর্ঘমেয়াদে রাখে।",
+      "Output: screen, speaker, printer বা network-এ ফল পৌঁছায়।"
+    ],
+    "language": "python",
+    "code": "name = input(\"তোমার নাম: \")\nmessage = f\"স্বাগতম, {name}!\"\nprint(message)",
+    "mistakes": [
+      "CPU-কে পুরো কম্পিউটার মনে করা; এটি বড় ব্যবস্থার একটি অংশ।",
+      "RAM ও storage-কে এক জিনিস ভাবা।",
+      "প্রতিটি কাজ শুধু CPU করে ধরে নেওয়া; OS ও I/O device-ও যুক্ত থাকে।"
+    ],
+    "exercises": [
+      [
+        "একটি ডিজিটাল ঘড়ির input, processing ও output আলাদা করো।",
+        "Input: সময়ের সংকেত; processing: সময় গণনা ও format; output: screen-এ ঘণ্টা-মিনিট দেখানো।"
+      ],
+      [
+        "ফাইল save করা আর screen-এ লেখা দেখানোর মধ্যে কোনটির জন্য storage দরকার?",
+        "ফাইল দীর্ঘমেয়াদে রাখতে storage দরকার; সাময়িক display-এর জন্য RAM ও graphics ব্যবস্থা কাজ করে।"
+      ],
+      [
+        "CPU, RAM ও SSD-এর দায়িত্ব এক বাক্যে লেখো।",
+        "CPU instruction চালায়, RAM চলমান কাজের data রাখে, SSD file স্থায়ীভাবে সংরক্ষণ করে।"
+      ]
+    ],
+    "reading": [
+      "https://www.khanacademy.org/computing/computer-science",
+      "https://computer.howstuffworks.com/pc.htm"
+    ]
+  },
+  {
+    "section": "00-getting-started",
+    "slug": "02-what-is-programming",
+    "title": "Programming কী",
+    "explanation": "Programming হলো কম্পিউটারকে একটি নির্দিষ্ট কাজ করাতে সুনির্দিষ্ট নির্দেশনা লেখা। কাজটি সফল হলেই যথেষ্ট নয়; code বোঝা, পরীক্ষা করা এবং পরিবর্তন করাও সহজ হওয়া দরকার। সমস্যা নির্ধারণ, input/output চিহ্নিত, algorithm সাজানো, code লেখা এবং ফল যাচাই—এই চক্র অধিকাংশ সফটওয়্যার কাজের ভিত্তি।\n\nProgramming language মানুষের ভাবনা ও computer instruction-এর মধ্যে সেতু। Python সহজ syntax-এর জন্য শেখার উপযোগী, JavaScript browser-এ চলে, আর C/C++ system ও memory-র ধারণা শেখায়। এক ভাষার syntax মুখস্থ করার চেয়ে সমস্যা বিশ্লেষণ, data নিয়ে যুক্তি এবং test লেখার ক্ষমতা গুরুত্বপূর্ণ; syntax অনুশীলনে আয়ত্ত হয়।",
+    "analogy": "রান্নার recipe-র মতো: উপকরণ input, ধাপগুলো algorithm, আর তৈরি খাবার output। নির্দেশনা অস্পষ্ট হলে ফল অনিশ্চিত হয়, code-এও তাই।",
+    "concepts": [
+      "সমস্যা নির্ধারণ করে প্রত্যাশিত output স্পষ্ট করো।",
+      "Algorithm হলো language-নিরপেক্ষ ধাপে সমাধানের পরিকল্পনা।",
+      "Implementation হলো পরিকল্পনাকে code-এ রূপ দেওয়া।",
+      "স্বাভাবিক, boundary ও invalid input দিয়ে test করো।"
+    ],
+    "language": "python",
+    "code": "price = 350\nquantity = 3\ntotal = price * quantity\nprint(total)",
+    "mistakes": [
+      "পরিকল্পনা ছাড়াই code লেখা।",
+      "একটি input দিয়েই পরীক্ষা শেষ করা।",
+      "অর্থপূর্ণ variable name না রাখা।"
+    ],
+    "exercises": [
+      [
+        "দুটি সংখ্যার গড় বের করার algorithm লেখো।",
+        "দুটি সংখ্যা নাও, যোগ করো, যোগফলকে ২ দিয়ে ভাগ করো, ফল দেখাও।"
+      ],
+      [
+        "দৈনিক খরচের প্রোগ্রামে input, process ও output কী?",
+        "Input হলো খরচের তালিকা, process হলো যোগ করা, output হলো মোট খরচ।"
+      ],
+      [
+        "একই program একাধিক input-এ পরীক্ষা করতে হয় কেন?",
+        "শূন্য, ঋণাত্মক, বড় বা অস্বাভাবিক input-এ আচরণ ঠিক আছে কি না জানতে।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/tutorial/",
+      "https://www.freecodecamp.org/learn/"
+    ]
+  },
+  {
+    "section": "00-getting-started",
+    "slug": "03-git-and-github",
+    "title": "Git ও GitHub-এর ভিত্তি",
+    "explanation": "Git হলো version control system; এটি file-এর পরিবর্তন, author ও project-এর আগের অবস্থার ইতিহাস রাখে। গুরুত্বপূর্ণ অবস্থার snapshot-কে commit বলে। ভুল হলে পুরোনো সংস্করণ দেখা যায়, আলাদা branch-এ কাজ করা যায় এবং পরে merge করা যায়। Git স্থানীয় কম্পিউটারেই কাজ করে; online account দরকার হয় না।\n\nGitHub হলো Git repository রাখা ও সহযোগিতার platform। `push` পরিবর্তন remote-এ পাঠায়; `fetch` বা `pull` অন্যদের update আনে। README project ব্যাখ্যা করে, issue কাজ বা bug নথিবদ্ধ করে, pull request change review করার সুযোগ দেয়। Password, API key বা ব্যক্তিগত তথ্য repository-তে commit করা উচিত নয়।",
+    "analogy": "Document version history-র মতো: commit bookmark, branch আলাদা খসড়া আর merge খসড়াগুলো এক করা।",
+    "concepts": [
+      "Repository হলো history-সহ file collection।",
+      "Commit একটি নির্দিষ্ট snapshot।",
+      "Branch আলাদা line of development।",
+      "Remote অন্য computer বা hosting platform-এ থাকা repository।"
+    ],
+    "language": "bash",
+    "code": "git init\ngit add README.md\ngit commit -m \"Add project introduction\"\ngit branch -M main\ngit remote add origin https://github.com/rafahim/example-repo.git\ngit push -u origin main",
+    "mistakes": [
+      "পরিবর্তন না বুঝে সব file stage করা; আগে `git status` দেখো।",
+      "Commit message-এ শুধু `update` লেখা।",
+      "Secret commit করা; প্রকাশ পেলে key revoke/rotate করো।"
+    ],
+    "exercises": [
+      [
+        "ফাইল বদলানোর আগে কোন command চালাবে?",
+        "`git status` working tree, staged files ও branch দেখায়।"
+      ],
+      [
+        "`git add` আর `git commit`-এর পার্থক্য কী?",
+        "`git add` change stage করে; `git commit` staged snapshot history-তে যোগ করে।"
+      ],
+      [
+        "পুরোনো commit-এর বিস্তারিত কীভাবে দেখবে?",
+        "`git log --oneline` দিয়ে history দেখো, তারপর `git show <commit>` চালাও।"
+      ]
+    ],
+    "reading": [
+      "https://git-scm.com/book/en/v2",
+      "https://docs.github.com/en/get-started/using-git/about-git"
+    ]
+  },
+  {
+    "section": "01-computer-basics",
+    "slug": "01-binary-and-data",
+    "title": "বাইনারি, বিট ও ডেটা",
+    "explanation": "Digital circuit সাধারণত দুটি স্থিতিশীল অবস্থাকে ০ ও ১ দিয়ে প্রকাশ করে। একটি binary digit bit; আট bit মিলে byte। সংখ্যা, লেখা, ছবি, অডিও ও ভিডিও—সবই bit sequence এবং সেই sequence ব্যাখ্যার নিয়ম দিয়ে উপস্থাপিত হয়। একই bit pattern এক প্রসঙ্গে সংখ্যা, অন্য প্রসঙ্গে রঙের মান হতে পারে।\n\nদশমিক পদ্ধতিতে position-এর মান ১০-এর ঘাত, binary-তে ২-এর ঘাত। `1011₂` হলো ৮+০+২+১ = ১১। Text-এর ক্ষেত্রে Unicode character-কে code point দেয়, আর UTF-8-এর মতো encoding সেটিকে byte-এ প্রকাশ করে। ভুল encoding দিয়ে byte পড়লে বাংলা লেখা ভাঙা দেখা যায়; তাই text ও raw bytes-এর পার্থক্য বোঝা দরকার।",
+    "analogy": "শুধু বাড়ির নম্বর দেখলে ঠিকানা সম্পূর্ণ হয় না; কোন রাস্তার নম্বর তা জানতে হয়। Bit-এর অর্থ বুঝতেও encoding বা data format জানতে হয়।",
+    "concepts": [
+      "Bit হলো binary digit; byte সাধারণত ৮ bit।",
+      "Binary positional notation-এ প্রতিটি ঘর ২-এর ঘাত।",
+      "Unicode character identity বর্ণনা করে; UTF-8 byte encoding করে।"
+    ],
+    "language": "python",
+    "code": "value = 0b1011\nprint(value)\nprint(format(value, \"08b\"))\ntext = \"বাংলা\"\nencoded = text.encode(\"utf-8\")\nprint(encoded)\nprint(encoded.decode(\"utf-8\"))",
+    "mistakes": [
+      "Bit ও byte-কে একই একক ভাবা।",
+      "সব বাংলা অক্ষর এক byte ধরে নেওয়া।",
+      "Fixed-width data-তে leading zero-কে অপ্রয়োজনীয় ভাবা।"
+    ],
+    "exercises": [
+      [
+        "`1101₂` দশমিক কত?",
+        "৮+৪+০+১ = ১৩।"
+      ],
+      [
+        "৪ byte-এ কত bit?",
+        "৪×৮ = ৩২ bit।"
+      ],
+      [
+        "ভুল encoding-এ বাংলা ফাইল খুললে কী হতে পারে?",
+        "Byte ভুল নিয়মে character-এ রূপান্তরিত হয়ে ভাঙা লেখা দেখা যেতে পারে।"
+      ]
+    ],
+    "reading": [
+      "https://unicode.org/standard/standard.html",
+      "https://docs.python.org/3/library/stdtypes.html#bytes-and-bytearray"
+    ]
+  },
+  {
+    "section": "01-computer-basics",
+    "slug": "02-cpu-ram-storage",
+    "title": "CPU, RAM ও স্টোরেজ",
+    "explanation": "CPU নির্দেশনা fetch, decode ও execute করে। Register খুব দ্রুত ছোট data ধরে, cache বারবার দরকার হয় এমন data CPU-র কাছে রাখে, আর RAM চলমান program ও data-র জন্য বড় অস্থায়ী জায়গা দেয়। RAM কম হলে OS কিছু data storage-এ সরিয়ে নিতে পারে, কিন্তু SSD RAM-এর সমান দ্রুত নয়; তাই একসঙ্গে অনেক বড় app চালালে system ধীর হতে পারে।\n\nSSD ও HDD দীর্ঘমেয়াদি file রাখে। SSD flash memory ব্যবহার করে, HDD ঘূর্ণায়মান magnetic platter ব্যবহার করে। Core count, clock speed ছাড়াও workload, cooling, storage latency ও software-এর দক্ষতা performance-এ প্রভাব ফেলে। একটি specification দেখেই সম্পূর্ণ computer-এর গতি নির্ধারণ করা যায় না।",
+    "analogy": "রান্নাঘরের কাউন্টার RAM, স্টোররুম SSD/HDD আর রাঁধুনি CPU। প্রয়োজনীয় উপকরণ কাছে থাকলে কাজ দ্রুত হয়; বারবার স্টোররুমে যেতে হলে সময় লাগে।",
+    "concepts": [
+      "CPU instruction চালায়।",
+      "Cache দ্রুত কিন্তু ছোট memory।",
+      "RAM volatile; power off হলে সাধারণত data থাকে না।",
+      "SSD/HDD non-volatile storage।"
+    ],
+    "language": "python",
+    "code": "tasks = [\"browser\", \"editor\", \"music player\"]\nprint(\"চলমান কাজ:\", len(tasks))\nprint(\"একসঙ্গে খোলা app:\", tasks)",
+    "mistakes": [
+      "বেশি GHz মানেই সব workload-এ বেশি গতি ধরে নেওয়া।",
+      "RAM-কে permanent backup মনে করা।",
+      "Storage capacity ও RAM capacity-কে একই ধরনের metric ভাবা।"
+    ],
+    "exercises": [
+      [
+        "Browser বন্ধ করলে RAM-এর কোন বৈশিষ্ট্য বোঝা যায়?",
+        "RAM চলমান কাজের অস্থায়ী data ধরে; app বন্ধ হলে সেই কাজের প্রয়োজনীয় অংশ মুক্ত হতে পারে।"
+      ],
+      [
+        "কম RAM-এ একসঙ্গে অনেক app চালালে ধীর হয় কেন?",
+        "System-কে storage থেকে data সরানো-আনা করতে হয়, যা RAM access-এর তুলনায় ধীর।"
+      ],
+      [
+        "দীর্ঘমেয়াদি ছবি সংরক্ষণে RAM না SSD উপযুক্ত?",
+        "SSD, কারণ power off হলেও এটি file ধরে রাখে।"
+      ]
+    ],
+    "reading": [
+      "https://www.crucial.com/articles/about-memory/support-what-does-computer-memory-do",
+      "https://www.intel.com/content/www/us/en/gaming/resources/cpu-vs-gpu.html"
+    ]
+  },
+  {
+    "section": "01-computer-basics",
+    "slug": "03-operating-system-and-cli",
+    "title": "অপারেটিং সিস্টেম ও কমান্ড লাইন",
+    "explanation": "Operating system (OS) application ও hardware-এর মধ্যে সমন্বয় করে। এটি process চালায়, memory বরাদ্দ করে, filesystem পরিচালনা করে, device-এর সঙ্গে যোগাযোগ ও permission control করে। Windows, Linux, macOS ও Android OS-এর উদাহরণ। Application সাধারণত OS API ব্যবহার করে কাজ চায়; hardware-এর সব detail নিজে পরিচালনা করে না।\n\nCommand-line interface-এ লিখিত command দিয়ে কাজ হয়। `pwd` বর্তমান directory জানায়, `ls` file দেখায়, `cd` directory বদলায়, `mkdir` folder তৈরি করে। Shell command ব্যাখ্যা করে চালায়। CLI-তে কাজ দ্রুত হয়, কিন্তু ভুল path বা destructive command ক্ষতি করতে পারে; command চালানোর আগে target যাচাই করো।",
+    "analogy": "OS ভবনের রিসেপশনের মতো: কে কোন ঘরে যাবে, কোন যন্ত্র ব্যবহার করবে ও কার অনুমতি আছে তা সমন্বয় করে। CLI হলো ব্যবস্থাপককে সরাসরি নির্দেশ দেওয়ার কাউন্টার।",
+    "concepts": [
+      "Kernel process, memory ও hardware-এর মৌলিক কাজ পরিচালনা করে।",
+      "Shell command ব্যাখ্যা করে।",
+      "Absolute path সম্পূর্ণ অবস্থান জানায়; relative path বর্তমান directory-র তুলনায়।"
+    ],
+    "language": "bash",
+    "code": "pwd\nls\nmkdir practice-folder\ncd practice-folder\nprintf 'Hello, terminal!\\n' > hello.txt\ncat hello.txt",
+    "mistakes": [
+      "বর্তমান directory না দেখে file তৈরি বা delete করা।",
+      "সব OS-এ একই command আছে ধরে নেওয়া।",
+      "অজানা destructive command কপি করে চালানো।"
+    ],
+    "exercises": [
+      [
+        "`pwd` কী জানায়?",
+        "বর্তমান working directory-র path।"
+      ],
+      [
+        "Delete command সাবধানে চালাতে হয় কেন?",
+        "ভুল target-এ চালালে গুরুত্বপূর্ণ file স্থায়ীভাবে মুছে যেতে পারে।"
+      ],
+      [
+        "একটি folder তৈরি করে ঢোকার command লেখো।",
+        "`mkdir notes` তারপর `cd notes`।"
+      ]
+    ],
+    "reading": [
+      "https://ubuntu.com/tutorials/command-line-for-beginners",
+      "https://learn.microsoft.com/en-us/windows/terminal/"
+    ]
+  },
+  {
+    "section": "01-computer-basics",
+    "slug": "04-files-processes-and-peripherals",
+    "title": "ফাইল, প্রসেস ও পেরিফেরাল",
+    "explanation": "Filesystem file ও directory-তে data সংগঠিত করে। Name ও extension সহায়ক হলেও extension সবসময় প্রকৃত file format প্রমাণ করে না। Metadata-তে size, timestamp ও permissions থাকতে পারে। Relative path বর্তমান directory-র তুলনায় অবস্থান জানায়; absolute path পূর্ণ অবস্থান দেয়। একই নামে file ভিন্ন directory-তে থাকতে পারে।\n\nProcess হলো চলমান program-এর instance; এর নিজস্ব address space ও resource থাকে। Thread process-এর ভেতরের execution stream, আর একই process-এর thread memory ভাগ করতে পারে। Printer, webcam, keyboard ও USB drive-এর মতো peripheral OS driver-এর সাহায্যে কাজ করে। App crash করলে process থামতে পারে, আর OS সাধারণত তার resource reclaim করে।",
+    "analogy": "লাইব্রেরির তাক directory, বই file আর বই পড়তে থাকা পাঠক process। বই খুঁজতে shelf location দরকার; এক reader একই সময়ে একাধিক helper task-ও চালাতে পারে।",
+    "concepts": [
+      "Directory file সংগঠিত করে।",
+      "Process চলমান program ও resource-এর পরিবেশ।",
+      "Thread একই process-এর ভেতরে execution চালায়।",
+      "Driver OS-কে hardware-এর সঙ্গে কথা বলতে সাহায্য করে।"
+    ],
+    "language": "python",
+    "code": "from pathlib import Path\nfolder = Path(\"sample-data\")\nfolder.mkdir(exist_ok=True)\nfile_path = folder / \"notes.txt\"\nfile_path.write_text(\"প্রথম নোট\", encoding=\"utf-8\")\nprint(file_path.read_text(encoding=\"utf-8\"))",
+    "mistakes": [
+      "শুধু extension দেখে file content নিশ্চিত ধরে নেওয়া।",
+      "Process ও thread-কে একই ধারণা ভাবা।",
+      "একই shared file-এ concurrent write হলে conflict হতে পারে তা উপেক্ষা করা।"
+    ],
+    "exercises": [
+      [
+        "Relative path ও absolute path-এর পার্থক্য কী?",
+        "Relative path বর্তমান directory-র ভিত্তিতে; absolute path সম্পূর্ণ path।"
+      ],
+      [
+        "App-এর একাধিক thread কেন থাকতে পারে?",
+        "UI responsive রাখা এবং network/data processing-এর মতো কাজ overlap করাতে।"
+      ],
+      [
+        "USB keyboard app-এ input পাঠায় কীভাবে?",
+        "Device signal OS ও driver-এর মাধ্যমে event হিসেবে application-এ পৌঁছায়।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/library/pathlib.html",
+      "https://learn.microsoft.com/en-us/windows/win32/procthread/processes-and-threads"
+    ]
+  },
+  {
+    "section": "02-programming-fundamentals",
+    "slug": "01-variables",
+    "title": "Variables: ডেটার নামযুক্ত ঘর",
+    "explanation": "Variable মানকে একটি নামে ব্যবহার করতে দেয়। একই সংখ্যা বারবার না লিখে `unit_price` নামে রাখলে হিসাব পড়া সহজ হয় এবং মান এক জায়গায় বদলালেই পরের হিসাবেও তা কাজে লাগে। Python-এ assignment `=` নামের সঙ্গে value বাঁধে; এটি equality comparison নয়। অন্য ভাষায় variable declare করার সময় type বা scope স্পষ্ট করতে হতে পারে।\n\nনামের উদ্দেশ্য বোঝা জরুরি। `total_price` অনেক ক্ষেত্রে `x`-এর চেয়ে স্পষ্ট। Scope বলে নামটি কোথায় ব্যবহারযোগ্য; local variable একটি function-এর ভেতরের কাজের জন্য, আর global state অতিরিক্তভাবে ভাগ করলে testing ও debugging জটিল হতে পারে। Reserved keyword variable name হিসেবে নেওয়া যায় না।",
+    "analogy": "রান্নার খাতায় উপকরণের পাত্রে label লাগানো: ‘চিনি’ লেখা পাত্র থেকে বারবার চিনি নেওয়া যায়; প্রতিবার উপকরণটি কী তা বুঝিয়ে দিতে হয় না।",
+    "concepts": [
+      "Assignment variable-এ value বাঁধে।",
+      "Variable-এর মান পুনরায় পরিবর্তন হতে পারে।",
+      "Scope নামের visibility সীমা নির্ধারণ করে।"
+    ],
+    "language": "python",
+    "code": "product_name = \"খাতা\"\nunit_price = 45\nquantity = 4\ntotal_price = unit_price * quantity\nprint(product_name, total_price)",
+    "mistakes": [
+      "`=`-কে comparison ধরে নেওয়া; তুলনায় `==` লাগে।",
+      "অস্পষ্ট এক-অক্ষরের নাম অতিরিক্ত ব্যবহার করা।",
+      "সব function-কে global state দিয়ে চালানো।"
+    ],
+    "exercises": [
+      [
+        "৮০ টাকা দাম ও ৩টি পণ্যের total বের করো।",
+        "`price = 80`, `quantity = 3`, `total = price * quantity`; ফল ২৪০।"
+      ],
+      [
+        "`user-name` Python variable name হতে পারে না কেন?",
+        "Hyphen subtraction operator, তাই `user_name` ব্যবহার করো।"
+      ],
+      [
+        "`monthly_rent` নাম `a`-এর চেয়ে ভালো কেন?",
+        "নাম থেকেই value-র উদ্দেশ্য বোঝা যায় এবং maintenance সহজ হয়।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/tutorial/introduction.html#using-python-as-a-calculator",
+      "https://developer.mozilla.org/en-US/docs/Glossary/Variable"
+    ]
+  },
+  {
+    "section": "02-programming-fundamentals",
+    "slug": "02-data-types",
+    "title": "Data Types: ডেটার ধরন",
+    "explanation": "Data type বলে value কী ধরনের এবং তার ওপর কোন operation অর্থপূর্ণ। Python-এ `int` integer, `float` approximate decimal, `str` text, `bool` true/false, আর `list` একাধিক item ধরে। JavaScript-এর type system আলাদা। Text-এর সঙ্গে number মিশিয়ে arithmetic করতে গেলে language অনুযায়ী ফল অপ্রত্যাশিত হতে পারে।\n\nType conversion এক type-কে অন্য type-এ বদলায়। User input প্রায়ই text হয়, তাই arithmetic-এর আগে validation ও conversion দরকার। `int('abc')` exception তুলবে। বাস্তব app-এ type ছাড়াও blank value, format, range ও domain-specific rule যাচাই করতে হয়।",
+    "analogy": "ডাকঘরের প্যাকেট: চিঠি, ভঙ্গুর জিনিস ও তরল আলাদা নিয়মে সামলাতে হয়। Data type-ও কোন কাজ করা যাবে তা জানায়।",
+    "concepts": [
+      "Type value-এর operation ও representation নির্ধারণ করে।",
+      "`type(value)` Python-এ type দেখায়।",
+      "Validation ও conversion আলাদা ধাপ।"
+    ],
+    "language": "python",
+    "code": "age_text = input(\"বয়স লিখো: \")\nif age_text.isdigit():\n    age = int(age_text)\n    print(age + 1)\nelse:\n    print(\"বয়স পূর্ণসংখ্যা হতে হবে\")",
+    "mistakes": [
+      "User input যাচাই ছাড়া number ধরে নেওয়া।",
+      "Zero ও empty string-এর truthiness গুলিয়ে ফেলা।",
+      "Floating-point সব decimal একদম নিখুঁত রাখবে ধরে নেওয়া।"
+    ],
+    "exercises": [
+      [
+        "`'42'` ও `42`-এর পার্থক্য কী?",
+        "প্রথমটি string, দ্বিতীয়টি integer; তাই arithmetic behavior আলাদা।"
+      ],
+      [
+        "৩৬.৬ তাপমাত্রা রাখার সাধারণ type কী?",
+        "সাধারণ হিসাবের জন্য float; precise finance-এর জন্য decimal type বিবেচনা করো।"
+      ],
+      [
+        "User বয়সে `abc` দিলে কী করবে?",
+        "Input reject বা পুনরায় চাইবে; পরিষ্কার error message দেবে।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/library/stdtypes.html",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures"
+    ]
+  },
+  {
+    "section": "02-programming-fundamentals",
+    "slug": "03-operators",
+    "title": "Operators: গণনা ও তুলনা",
+    "explanation": "Operator value-এর ওপর কাজ করে। Arithmetic operator যোগ, বিয়োগ, গুণ, ভাগ ও remainder দেয়; comparison operator সমতা বা বড়-ছোট পরীক্ষা করে; logical operator শর্ত যুক্ত করে। Precedence নির্ধারণ করে expression-এর কোন অংশ আগে মূল্যায়িত হবে—সাধারণত multiplication যোগের আগে হয়। জটিল expression-এ parentheses দিয়ে অভিপ্রায় স্পষ্ট করা ভালো।\n\nPython-এর `and`, `or`, `not` condition-এর যুক্তি প্রকাশ করে। Short-circuit evaluation-এ ফল আগেই জানা গেলে পরের অংশ চলতে নাও পারে। Floating-point-এ `0.1 + 0.2 == 0.3` সত্য হবে ধরে নেওয়া উচিত নয়; tolerance বা decimal arithmetic দরকার হতে পারে।",
+    "analogy": "গণিতের সূত্রে bracket বসানোর মতো; কোন কাজ আগে হবে তা বন্ধনী স্পষ্ট করে।",
+    "concepts": [
+      "Arithmetic: `+`, `-`, `*`, `/`, `%`।",
+      "Comparison: `==`, `!=`, `<`, `<=`, `>`, `>=`।",
+      "Logical: `and`, `or`, `not`।"
+    ],
+    "language": "python",
+    "code": "price = 125\ndiscount = 20\nfinal_price = price - (price * discount / 100)\nhas_coupon = True\nfree_delivery = final_price >= 100 or has_coupon\nprint(final_price)\nprint(free_delivery)",
+    "mistakes": [
+      "`=` এবং `==` গুলিয়ে ফেলা।",
+      "Precedence-এ সন্দেহ থাকলেও parentheses না দেওয়া।",
+      "Float equality সরাসরি পরীক্ষা করে rounding issue উপেক্ষা করা।"
+    ],
+    "exercises": [
+      [
+        "১৭ ভাগ ৫-এর remainder কী?",
+        "`17 % 5` ফল ২।"
+      ],
+      [
+        "`age >= 18 and has_id` কী যাচাই করে?",
+        "বয়স ১৮ বা বেশি এবং ID আছে—দুটিই true কি না।"
+      ],
+      [
+        "`2 + 3 * 4` ও `(2 + 3) * 4`-এর ফল কী?",
+        "প্রথমটির ফল ১৪, দ্বিতীয়টির ২০।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/reference/expressions.html",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_operators"
+    ]
+  },
+  {
+    "section": "02-programming-fundamentals",
+    "slug": "04-control-flow",
+    "title": "Control Flow: শর্ত ও লুপ",
+    "explanation": "Control flow বলে program-এর কোন অংশ কখন চলবে। `if/elif/else` condition অনুযায়ী পথ নেয়; `for` iterable-এর item নিয়ে কাজ করে; `while` condition true থাকা পর্যন্ত চলে। বাস্তব সমস্যায় শর্তের order, unreachable branch এবং loop বন্ধ হওয়ার নিশ্চয়তা যাচাই করতে হয়।\n\nCounter বা sequence ঠিকমতো অগ্রসর না হলে infinite loop বা item skip হওয়ার সমস্যা হয়। ০, ১ ও maximum value-এর মতো boundary test কার্যকর। `break` loop থেকে বের হয়, `continue` পরের iteration-এ যায়; এগুলো অতিরিক্ত ব্যবহার করলে flow বোঝা কঠিন হতে পারে।",
+    "analogy": "Traffic signal: সবুজ হলে এগোও, লাল হলে থামো—condition। একে একে গাড়ি পার হওয়া loop; কখন থামবে তার নিয়ম দরকার।",
+    "concepts": [
+      "Condition boolean ফল দেয়।",
+      "`for` iterable ঘোরে; `range()` sequence তৈরি করে।",
+      "`while` condition বা state update ভুল হলে infinite হতে পারে।"
+    ],
+    "language": "python",
+    "code": "score = 76\nif score >= 80:\n    grade = \"A\"\nelif score >= 70:\n    grade = \"B\"\nelse:\n    grade = \"আরও অনুশীলন\"\nprint(grade)\nfor number in range(1, 6):\n    print(number)",
+    "mistakes": [
+      "Broad condition আগে দিয়ে specific branch unreachable করা।",
+      "`while` loop-এ state update ভুলে যাওয়া।",
+      "`range(1, 5)`-এ ৫ অন্তর্ভুক্ত ধরে নেওয়া।"
+    ],
+    "exercises": [
+      [
+        "১ থেকে ১০ পর্যন্ত জোড় সংখ্যা দেখাও।",
+        "`for n in range(2, 11, 2): print(n)`।"
+      ],
+      [
+        "Score ০–১০০-এর বাইরে হলে কী করো?",
+        "Range validation করে input reject বা পুনরায় চাও।"
+      ],
+      [
+        "`while count < 3` থামাতে কী প্রয়োজন?",
+        "Loop-এর মধ্যে count এমনভাবে বাড়াও যাতে শেষে condition false হয়।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/tutorial/controlflow.html",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling"
+    ]
+  },
+  {
+    "section": "02-programming-fundamentals",
+    "slug": "05-functions",
+    "title": "Functions: পুনর্ব্যবহারযোগ্য কাজ",
+    "explanation": "Function একটি নামযুক্ত কাজের একক, যা input নিতে, হিসাব করতে এবং ফল ফেরত দিতে পারে। একই যুক্তি কয়েক জায়গায় দরকার হলে function-এ রাখলে duplicate code কমে। Parameter হলো definition-এ input-এর নাম, argument হলো call-এর সময় দেওয়া value। `return` caller-কে value দেয়; `print()` কেবল output দেখায়।\n\nভালো function-এর দায়িত্ব স্পষ্ট, input/output বোঝা যায় এবং side effect সীমিত থাকে। Local variable function-এর ভেতরে থাকে। Python-এ mutable default argument ভুলভাবে ব্যবহার করলে এক call-এর state পরের call-এ থেকে যেতে পারে; list বা dict parameter-এর default নতুন করে তৈরি করার প্রয়োজন হলে `None` ব্যবহার করা নিরাপদ কৌশল।",
+    "analogy": "কফি মেশিনের বোতামের মতো: size ও sugar বেছে দিলে মেশিন ধাপ চালিয়ে পানীয় দেয়। Argument পছন্দ, function body কাজ, return ফল।",
+    "concepts": [
+      "Function definition ও call আলাদা ধাপ।",
+      "Parameter ও argument আলাদা ধারণা।",
+      "Return value অন্য expression-এ ব্যবহার করা যায়।"
+    ],
+    "language": "python",
+    "code": "def calculate_total(price, quantity, discount=0):\n    subtotal = price * quantity\n    return subtotal - subtotal * discount / 100\n\nprint(calculate_total(200, 3, 10))",
+    "mistakes": [
+      "Value return না করে কেবল print করা।",
+      "এক function-এ অনেক অপ্রাসঙ্গিক দায়িত্ব রাখা।",
+      "অজান্তে global state বদলানো।"
+    ],
+    "exercises": [
+      [
+        "দুটি সংখ্যার বড়টি return করে এমন function লেখো।",
+        "`def larger(a, b): return a if a > b else b`।"
+      ],
+      [
+        "`return` ও `print` কীভাবে আলাদা?",
+        "`return` caller-কে value দেয়; `print` output দেখায়।"
+      ],
+      [
+        "`calculate_total(50, 4)` কত, discount না দিলে?",
+        "ফল ২০০।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
+    ]
+  },
+  {
+    "section": "02-programming-fundamentals",
+    "slug": "06-recursion",
+    "title": "Recursion: নিজেকে ডাকা",
+    "explanation": "Recursion-এ function একই সমস্যার ছোট সংস্করণ সমাধান করতে নিজেকেই call করে। প্রতিটি recursive function-এর base case থাকতে হবে, যেখানে আর recursion হয় না; recursive case-এ input-কে base case-এর দিকে ছোট করতে হয়। Factorial-এর নিয়ম `n! = n × (n-1)!`, এবং `0! = 1`। Base case ভুল হলে function থামবে না অথবা ভুল ফল দেবে।\n\nপ্রতিটি recursive call call stack-এ একটি frame তৈরি করতে পারে। খুব গভীর recursion stack limit ছাড়াতে পারে, এবং naive Fibonacci-এর মতো code একই subproblem বারবার গণনা করতে পারে। Tree traversal ও divide-and-conquer-এ recursion স্বাভাবিক; loop কখনও কম memory ব্যবহার করে। Code বেছে নাও readability, input depth এবং performance দেখে।",
+    "analogy": "এক বাক্স খুলে ভেতরে আরেকটি ছোট বাক্স, তারপর আরেকটি—শেষে base case-এ খালি বাক্স পাওয়া যায়।",
+    "concepts": [
+      "Base case recursion থামায়।",
+      "Recursive step input-কে ছোট বা সহজ করে।",
+      "Call stack অসমাপ্ত call-এর state ধরে।"
+    ],
+    "language": "python",
+    "code": "def factorial(n):\n    if n < 0:\n        raise ValueError(\"n must be non-negative\")\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)\n\nprint(factorial(5))",
+    "mistakes": [
+      "Base case বাদ দেওয়া।",
+      "Recursive call-এ input না কমানো।",
+      "Repeated computation বা recursion depth উপেক্ষা করা।"
+    ],
+    "exercises": [
+      [
+        "`factorial(4)`-এর ফল কী?",
+        "৪×৩×২×১ = ২৪।"
+      ],
+      [
+        "Naive Fibonacci recursion ধীর কেন?",
+        "একই subproblem বারবার হিসাব করে; memoization বা iteration তা কমায়।"
+      ],
+      [
+        "Recursive function review-এর দুটি প্রশ্ন কী?",
+        "Base case আছে কি এবং প্রতিটি call termination-এর দিকে যাচ্ছে কি?।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/reference/compound_stmts.html#function-definitions",
+      "https://en.wikipedia.org/wiki/Recursion_(computer_science)"
+    ]
+  },
+  {
+    "section": "03-web-development",
+    "slug": "01-html",
+    "title": "HTML: ওয়েব পৃষ্ঠার কাঠামো",
+    "explanation": "HTML semantic structure তৈরি করে। Heading, paragraph, navigation, link, image, list, form ও table-এর জন্য অর্থবহ element আছে। `<h1>` কেবল বড় অক্ষরের জন্য নয়; এটি প্রধান heading বোঝায়। `<a>` navigation-এর জন্য, `<button>` action-এর জন্য, আর `<label>` form control চিহ্নিত করে। Semantic HTML accessibility, keyboard navigation, search ও maintenance-এ সাহায্য করে।\n\nElement সাধারণত opening tag, content ও closing tag নিয়ে গঠিত; `<img>` ও `<input>`-এর মতো void element-এর closing tag থাকে না। Attribute অতিরিক্ত তথ্য দেয়। HTML structure, CSS presentation এবং JavaScript behavior আলাদা রাখলে site রক্ষণাবেক্ষণ সহজ হয়। User-generated content দেখানোর সময় input-কে markup ভেবে নেওয়া বা unsafe HTML হিসেবে render করা যাবে না।",
+    "analogy": "বইয়ের অধ্যায় ও শিরোনাম: রং বা font না দেখেও কাঠামো বোঝা যায়। HTML বলে কোনটি title, paragraph, image বা link।",
+    "concepts": [
+      "Semantic element অর্থ প্রকাশ করে।",
+      "Attribute element-এর বৈশিষ্ট্য নির্ধারণ করে।",
+      "Image-এ meaningful `alt` text দরকার; decorative image-এ empty alt হতে পারে।"
+    ],
+    "language": "html",
+    "code": "<!doctype html>\n<html lang=\"bn\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>আমার প্রথম পৃষ্ঠা</title>\n</head>\n<body>\n  <header><h1>বাংলা CS Roadmap</h1></header>\n  <main><p>এটি semantic HTML উদাহরণ।</p><a href=\"https://developer.mozilla.org/\">MDN পড়ো</a></main>\n</body>\n</html>",
+    "mistakes": [
+      "শুধু বড় font দেখাতে heading tag বেছে নেওয়া।",
+      "Image-এ alt বাদ দেওয়া।",
+      "Form control-এর সঙ্গে label যুক্ত না করা।"
+    ],
+    "exercises": [
+      [
+        "প্রধান heading-এর element কী?",
+        "`<h1>`।"
+      ],
+      [
+        "Link ও button-এর পার্থক্য কী?",
+        "Link resource/location-এ নেয়; button সাধারণত action চালায়।"
+      ],
+      [
+        "`lang=\"bn\"` কেন সহায়ক?",
+        "Browser ও assistive technology-কে document-এর ভাষা জানায়।"
+      ]
+    ],
+    "reading": [
+      "https://developer.mozilla.org/en-US/docs/Learn/HTML",
+      "https://html.spec.whatwg.org/"
+    ]
+  },
+  {
+    "section": "03-web-development",
+    "slug": "02-css",
+    "title": "CSS: লেআউট, রং ও responsive design",
+    "explanation": "CSS HTML element-এর রং, spacing, typography, অবস্থান ও responsive আচরণ নির্ধারণ করে। Selector বলে কোন element-এ style লাগবে; declaration-এ property ও value থাকে। Cascade, specificity ও source order একাধিক rule-এর মধ্যে কোনটি কার্যকর হবে তা প্রভাবিত করে। CSS custom property design token এক জায়গায় রাখতে সাহায্য করে, ফলে brand color ও spacing বদলানো সহজ হয়।\n\nResponsive design হলো বিভিন্ন viewport-এ content-কে ব্যবহারযোগ্য রাখা। Flexible grid, relative unit, Flexbox, Grid ও media query দিয়ে layout মানিয়ে নেওয়া যায়। Fixed pixel width ছোট screen-এ overflow তৈরি করতে পারে। Keyboard focus, readable type ও color contrast-ও design-এর অংশ—শুধু আকর্ষণীয় রং দিলেই user experience ভালো হয় না।",
+    "analogy": "ঘর সাজানোর মতো: HTML দেয়াল ও দরজা, CSS দেয়ালের রং, আসবাবের দূরত্ব ও layout নির্ধারণ করে।",
+    "concepts": [
+      "Selector element নির্বাচন করে; specificity conflict মেটাতে প্রভাব ফেলে।",
+      "Flexbox এক-দিকের layout, Grid দুই-মাত্রার layout-এ উপযোগী।",
+      "Media query viewport বা user preference অনুযায়ী style বদলায়।"
+    ],
+    "language": "html",
+    "code": "<!doctype html>\n<html lang=\"bn\">\n<head>\n<meta charset=\"utf-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<style>\n:root { --space: 1rem; --brand: #1e3a8a; }\nbody { font-family: system-ui, sans-serif; margin: 0; padding: var(--space); }\n.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space); }\n.card { border: 1px solid #cbd5e1; border-radius: 12px; padding: var(--space); }\nh1 { color: var(--brand); }\n</style>\n</head>\n<body><h1>শেখার বিষয়</h1><div class=\"cards\"><article class=\"card\">HTML</article><article class=\"card\">CSS</article></div></body>\n</html>",
+    "mistakes": [
+      "সব layout-এ fixed width ব্যবহার করা।",
+      "অনেক `!important` দিয়ে specificity সমস্যা ঢেকে রাখা।",
+      "Keyboard focus ও contrast উপেক্ষা করা।"
+    ],
+    "exercises": [
+      [
+        "Card-এর ভেতরে spacing বাড়াতে কোন property?",
+        "`padding`।"
+      ],
+      [
+        "ছোট screen-এ card নিচে নামাতে কী কৌশল?",
+        "Grid-এর `auto-fit`/`minmax` বা media query ব্যবহার করা যায়।"
+      ],
+      [
+        "`:root`-এ custom property রাখার সুবিধা কী?",
+        "একই design token বহু জায়গায় পুনর্ব্যবহার ও পরিবর্তন করা যায়।"
+      ]
+    ],
+    "reading": [
+      "https://developer.mozilla.org/en-US/docs/Learn/CSS",
+      "https://web.dev/learn/css/"
+    ]
+  },
+  {
+    "section": "03-web-development",
+    "slug": "03-javascript",
+    "title": "JavaScript: ওয়েবে আচরণ যোগ করা",
+    "explanation": "JavaScript browser-এ button click, form validation, DOM পরিবর্তন, asynchronous request ও state management করে। `const` binding পুনরায় assign করা যায় না, `let` যায়; তবে `const` object-এর property বদলাতে পারে। `===` সাধারণত type conversion ছাড়া তুলনা করে, তাই unintended coercion এড়াতে এটি স্পষ্ট পছন্দ।\n\nBrowser JavaScript event-driven: click, input বা submit হলে handler চলে। DOM API দিয়ে element পড়া ও বদলানো যায়। `fetch()` Promise দেয়; HTTP error status-এ Promise সবসময় reject হয় না, তাই `response.ok` যাচাই জরুরি। User content DOM-এ বসানোর সময় `textContent` সাধারণত `innerHTML`-এর চেয়ে নিরাপদ, কারণ raw HTML হিসেবে parse করে না।",
+    "analogy": "Remote control-এর মতো: HTML control ও screen-এর কাঠামো, CSS চেহারা, আর JavaScript button চাপলে কী হবে তা নির্ধারণ করে।",
+    "concepts": [
+      "`const`/`let` block scope তৈরি করে।",
+      "DOM HTML document-এর object representation।",
+      "Event handler user action-এ সাড়া দেয়।",
+      "Promise ও `async/await` asynchronous code সহজ করে।"
+    ],
+    "language": "html",
+    "code": "<!doctype html>\n<html lang=\"bn\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><title>Click demo</title></head>\n<body><button id=\"countButton\" type=\"button\">চাপ দাও</button><p id=\"count\">০</p>\n<script>\nconst button = document.querySelector(\"#countButton\");\nconst output = document.querySelector(\"#count\");\nlet count = 0;\nbutton.addEventListener(\"click\", () => { count += 1; output.textContent = String(count); });\n</script></body></html>",
+    "mistakes": [
+      "সব জায়গায় `var` ব্যবহার করা।",
+      "Fetch response-এর status যাচাই না করা।",
+      "Untrusted input সরাসরি `innerHTML`-এ বসানো।"
+    ],
+    "exercises": [
+      [
+        "Click-এ count বাড়াতে কোন event লাগবে?",
+        "`click` event এবং `addEventListener()`।"
+      ],
+      [
+        "`const` object-এর property বদলানো যায়?",
+        "হ্যাঁ, binding reassign না করে property বদলানো যায়।"
+      ],
+      [
+        "Fetch-এর পরে `response.ok` কেন যাচাই করবে?",
+        "৪০৪/৫০০ status-ও Promise resolve করতে পারে; status আলাদা যাচাই দরকার।"
+      ]
+    ],
+    "reading": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
+      "https://javascript.info/"
+    ]
+  },
+  {
+    "section": "03-web-development",
+    "slug": "04-strings-and-objects",
+    "title": "Strings ও Objects",
+    "explanation": "String হলো text-এর ধারাবাহিকতা; search, slice, replace, split ও join-এর মতো কাজ করা যায়। Unicode-এর কারণে দৃশ্যমান অক্ষর সবসময় এক byte বা এক code unit নয়; emoji ও যুক্তাক্ষরে string length-এর সরল হিসাব বিভ্রান্ত করতে পারে। Input trim বা normalize করার আগে কোন পরিবর্তন দরকার তা বোঝো, যাতে তথ্য অনিচ্ছায় না হারায়।\n\nObject key-value জোড়ায় সম্পর্কিত তথ্য রাখে। JavaScript-এ property dot বা bracket notation দিয়ে পড়া যায়; key variable থেকে এলে bracket notation দরকার হতে পারে। `JSON.stringify` object-কে JSON text করে, আর `JSON.parse` বৈধ JSON থেকে value বানায়। JSON function বা circular object সরাসরি সংরক্ষণ করে না। API data-র structure ও type যাচাই করা উচিত।",
+    "analogy": "Student form-এ নাম, course ও active status একই ব্যক্তির সম্পর্কিত field—object; নামের অক্ষরগুলো string।",
+    "concepts": [
+      "String method নতুন string ফেরাতে পারে।",
+      "Object related field একসঙ্গে রাখে।",
+      "JSON interchange format, JavaScript object-এর পুরো সমার্থক নয়।"
+    ],
+    "language": "javascript",
+    "code": "const student = { name: \"সামিয়া\", course: \"Web Development\", active: true };\nconst label = `${student.name} — ${student.course}`;\nconst trimmed = \"  বাংলা কোড  \".trim();\nconst encoded = JSON.stringify(student);\nconst decoded = JSON.parse(encoded);\nconsole.log(label);\nconsole.log(trimmed);\nconsole.log(decoded.active);",
+    "mistakes": [
+      "String method মূল variable বদলে দেয় ধরে নেওয়া।",
+      "Parsed JSON-এর field type যাচাই না করা।",
+      "Dynamic key পড়তে bracket notation দরকার তা ভুলে যাওয়া।"
+    ],
+    "exercises": [
+      [
+        "`'  Dhaka  '.trim()`-এর ফল কী?",
+        "`'Dhaka'`।"
+      ],
+      [
+        "`const key = 'course'; student[key]` কী করে?",
+        "`key`-এর মান দিয়ে `course` property পড়ে।"
+      ],
+      [
+        "JSON-এ JavaScript function রাখা যায়?",
+        "না, JSON function data হিসেবে সংরক্ষণ করে না।"
+      ]
+    ],
+    "reading": [
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON"
+    ]
+  },
+  {
+    "section": "03-web-development",
+    "slug": "05-http-and-rest-apis",
+    "title": "HTTP ও REST API",
+    "explanation": "HTTP client ও server-এর request-response protocol। Request-এ method, path, headers ও প্রয়োজনে body থাকে; response-এ status code, headers ও body থাকে। `GET` সাধারণত resource পড়ে, `POST` resource বা action তৈরি করতে পারে, `PUT` representation বদলায়, `PATCH` আংশিক update করে, আর `DELETE` মুছে ফেলে। API contract-এ নির্দিষ্ট আচরণ স্পষ্ট থাকা জরুরি।\n\nREST resource-ভিত্তিক API design style; URL-এ action verb ঢোকানোর বদলে resource ও HTTP method দিয়ে কাজ প্রকাশ করা যায়। Authentication, validation, pagination, rate limiting ও structured errors গুরুত্বপূর্ণ। `200`, `201`, `400`, `401`, `403`, `404`, `429` ও `500` বিভিন্ন outcome বোঝায়। Private API key frontend code-এ রাখলে তা গোপন থাকে না।",
+    "analogy": "লাইব্রেরির কাউন্টারে form দেওয়ার মতো: client request করে, server নিয়ম দেখে তথ্য ফেরায় বা বদলায়; status জানায় কী হলো।",
+    "concepts": [
+      "Request ও response HTTP যোগাযোগের দুই দিক।",
+      "REST resource ও HTTP method দিয়ে operation প্রকাশ করতে পারে।",
+      "Status code client-কে পরবর্তী পদক্ষেপ ঠিক করতে সাহায্য করে।"
+    ],
+    "language": "javascript",
+    "code": "async function loadUser() {\n  const response = await fetch(\"https://jsonplaceholder.typicode.com/users/1\");\n  if (!response.ok) throw new Error(`HTTP error: ${response.status}`);\n  const user = await response.json();\n  return { id: user.id, name: user.name };\n}\nloadUser().then(user => console.log(user)).catch(error => console.error(error.message));",
+    "mistakes": [
+      "সব response-কে সফল ধরে JSON পড়া।",
+      "Sensitive value URL query string-এ রাখা।",
+      "Frontend bundle-এ private API secret রাখা।"
+    ],
+    "exercises": [
+      [
+        "নতুন resource সফলভাবে তৈরি হলে সাধারণ status কী?",
+        "সাধারণত `201 Created`।"
+      ],
+      [
+        "`401` ও `403`-এর পার্থক্য কী?",
+        "`401` authentication প্রয়োজন/ব্যর্থ বোঝাতে পারে; `403` অনুমতি নেই বোঝায়।"
+      ],
+      [
+        "API pagination কেন দরকার?",
+        "বড় result-কে ছোট page-এ ভাগ করলে latency ও memory চাপ কমে।"
+      ]
+    ],
+    "reading": [
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP",
+      "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "https://restfulapi.net/"
+    ]
+  },
+  {
+    "section": "04-data-structures-algorithms",
+    "slug": "01-big-o",
+    "title": "Big-O: অ্যালগরিদমের বৃদ্ধি বিশ্লেষণ",
+    "explanation": "Big-O input size বাড়লে algorithm-এর কাজ কীভাবে বাড়ে তার asymptotic বর্ণনা। এটি নির্দিষ্ট machine-এ seconds মাপার বিকল্প নয়; বড় input-এ কোন algorithm scale করবে তা তুলনা করতে সাহায্য করে। `O(1)` constant, `O(log n)` logarithmic, `O(n)` linear, `O(n log n)` অনেক efficient sorting-এর প্রচলিত order এবং `O(n²)` pairwise কাজের পরিচিত উদাহরণ। Constant factor ও lower-order term সাধারণত বাদ দেওয়া হয়।\n\nTime complexity-এর পাশাপাশি space complexity দেখো—অতিরিক্ত memory কত বাড়ে। এক loop প্রায়ই `O(n)`, সব pair তুলনা করা nested loop প্রায়ই `O(n²)`, কিন্তু loop-এর bound বিশ্লেষণ ছাড়া complexity বলা যায় না। Best, average ও worst case আলাদা হতে পারে। Readability, memory, real input distribution ও benchmark-ও decision-এ গুরুত্বপূর্ণ।",
+    "analogy": "এক তালিকায় একজন একজন করে নাম খোঁজা linear search; প্রতিবার তালিকা অর্ধেক করা logarithmic search। তালিকা বড় হলে growth-এর পার্থক্য দ্রুত বেড়ে যায়।",
+    "concepts": [
+      "Complexity input size `n`-এর function হিসেবে দেখা হয়।",
+      "Nested iteration কাজকে গুণিতকভাবে বাড়াতে পারে।",
+      "Asymptotic analysis-এর পাশাপাশি বাস্তব performance test-ও দরকার।"
+    ],
+    "language": "python",
+    "code": "def contains_pair_sum(values, target):\n    for i in range(len(values)):\n        for j in range(i + 1, len(values)):\n            if values[i] + values[j] == target:\n                return True\n    return False\n\nprint(contains_pair_sum([2, 7, 11, 15], 9))",
+    "mistakes": [
+      "Big-O-কে সরাসরি milliseconds মনে করা।",
+      "Space complexity বাদ দেওয়া।",
+      "সব nested loop পরীক্ষা ছাড়াই `O(n²)` বলা।"
+    ],
+    "exercises": [
+      [
+        "List একবার traverse করলে complexity কী?",
+        "`O(n)`।"
+      ],
+      [
+        "Balanced BST-তে lookup সাধারণত কত?",
+        "`O(log n)`; unbalanced worst case `O(n)`।"
+      ],
+      [
+        "Input ১০০ গুণ হলে `O(n²)` কেন চিন্তার?",
+        "Quadratic work প্রায় ১০,০০০ গুণ হতে পারে।"
+      ]
+    ],
+    "reading": [
+      "https://www.bigocheatsheet.com/",
+      "https://opendsa-server.cs.vt.edu/"
+    ]
+  },
+  {
+    "section": "04-data-structures-algorithms",
+    "slug": "02-arrays",
+    "title": "Arrays ও index",
+    "explanation": "Array ধারাবাহিক slot-এ ordered item রাখে; index দিয়ে নির্দিষ্ট item পড়া যায়। Python list dynamic array-এর মতো আচরণ করে, যদিও ভাষার implementation এক নয়। Index সাধারণত ০ থেকে শুরু হয়, তাই length `n` হলে বৈধ index `0` থেকে `n-1`; ভুল index out-of-range error দিতে পারে।\n\nIndex access সাধারণত `O(1)`, কিন্তু মাঝখানে insert/delete করলে পরের item সরাতে হয় বলে `O(n)` হতে পারে। পুরো list traverse করা `O(n)`। Position access ও iteration বেশি দরকার হলে array সুবিধাজনক; insert/delete pattern ঘনঘন হলে অন্য structure বিবেচনা করো।",
+    "analogy": "সারি করে রাখা সিনেমার আসনের মতো: seat number জানা থাকলে সরাসরি সেখানে যাওয়া যায়, মাঝখানে নতুন seat ঢোকাতে হলে অন্যদের সরাতে হয়।",
+    "concepts": [
+      "Index zero-based হতে পারে।",
+      "Length ও last index এক নয়।",
+      "Middle insertion array/list-এ ব্যয়বহুল হতে পারে।"
+    ],
+    "language": "python",
+    "code": "scores = [72, 88, 91, 67]\nprint(scores[0])\nprint(scores[-1])\nscores.append(95)\nscores[1] = 90\nprint(scores)\nprint(sum(scores) / len(scores))",
+    "mistakes": [
+      "`items[len(items)]`-কে শেষ index ধরা।",
+      "খালি list-এ first item access করা।",
+      "Loop চলাকালে list বদলে item skip করা।"
+    ],
+    "exercises": [
+      [
+        "`[10, 20, 30]`-এর index ১-এর মান কী?",
+        "২০।"
+      ],
+      [
+        "Python list-এর শেষ item কীভাবে পাবে?",
+        "খালি নয় নিশ্চিত হলে `items[-1]`।"
+      ],
+      [
+        "List-এ positive number-এর সংখ্যা কীভাবে গুনবে?",
+        "`sum(1 for x in values if x > 0)`।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/tutorial/datastructures.html",
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array"
+    ]
+  },
+  {
+    "section": "04-data-structures-algorithms",
+    "slug": "03-linked-lists",
+    "title": "Linked Lists",
+    "explanation": "Linked list-এ প্রতিটি node value এবং পরের node-এর reference রাখে। Singly linked list এক দিকে চলে; doubly linked list previous ও next—দুই reference রাখে। Array-এর মতো node-গুলো memory-তে পাশাপাশি থাকা জরুরি নয়। আগে থেকে node reference জানা থাকলে তার পাশে insertion সহজ, কিন্তু index খুঁজতে শুরু থেকে traverse করতে হয়, তাই access সাধারণত `O(n)`।\n\nHead প্রথম node-কে চিহ্নিত করে, আর শেষ node-এর next সাধারণত `None`/null। ভুল pointer update করলে বাকি list বিচ্ছিন্ন হতে পারে বা cycle তৈরি হতে পারে। বাস্তব ভাষায় built-in list/array অনেক সময় cache locality-র কারণে দ্রুত; linked list বেছে নাও প্রয়োজনীয় operation ও memory overhead বিবেচনা করে।",
+    "analogy": "ট্রেনের বগির মতো: প্রতিটি বগি পরেরটির সঙ্গে যুক্ত। নির্দিষ্ট বগিতে যেতে একে একে এগোতে হয়; মাঝখানে বগি জুড়তে link বদলাতে হয়।",
+    "concepts": [
+      "Node-এ value ও link থাকে।",
+      "Head প্রথম node-কে চিহ্নিত করে।",
+      "Traversal `O(n)`; reference জানা থাকলে local insertion সাধারণত `O(1)`।"
+    ],
+    "language": "python",
+    "code": "class Node:\n    def __init__(self, value):\n        self.value = value\n        self.next = None\n\nfirst = Node(10)\nsecond = Node(20)\nthird = Node(30)\nfirst.next = second\nsecond.next = third\ncurrent = first\nvalues = []\nwhile current is not None:\n    values.append(current.value)\n    current = current.next\nprint(values)",
+    "mistakes": [
+      "Next reference সংরক্ষণ না করে বাকি list হারানো।",
+      "শেষ node-এর `next` `None` না রাখা।",
+      "Linked list-এ index access constant time ধরে নেওয়া।"
+    ],
+    "exercises": [
+      [
+        "Values ১, ২, ৩-এর traversal output কী?",
+        "`[1, 2, 3]`।"
+      ],
+      [
+        "Head `None` মানে কী?",
+        "সাধারণত list খালি।"
+      ],
+      [
+        "৮ম node পেতে কেন `O(n)` লাগতে পারে?",
+        "Head থেকে একে একে link অনুসরণ করে সেখানে পৌঁছাতে হয়।"
+      ]
+    ],
+    "reading": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/ListLinked.html",
+      "https://www.geeksforgeeks.org/data-structures/linked-list/"
+    ]
+  },
+  {
+    "section": "04-data-structures-algorithms",
+    "slug": "04-stacks-and-queues",
+    "title": "Stacks ও Queues",
+    "explanation": "Stack হলো Last In, First Out (LIFO): শেষে যোগ করা item আগে বের হয়। `push` item যোগ করে, `pop` top item সরায়, `peek` না সরিয়ে দেখে। Function call stack, undo history ও expression parsing-এ এই ধারণা দেখা যায়। Queue হলো First In, First Out (FIFO): আগে ঢোকা item আগে বের হয়; print job বা ticket line-এর মতো কাজের জন্য উপযোগী।\n\nStack ও queue abstract data type; তারা operation নির্ধারণ করে, internal storage নয়। Python list-এ stack করা যায়, কিন্তু queue-এর জন্য `collections.deque` ভালো, কারণ list-এর `pop(0)` বাকি item shift করতে পারে। Empty structure থেকে pop করার আগে state যাচাই করো।",
+    "analogy": "Stack থালা রাখার স্তূপ—শেষ থালা আগে ওঠে। Queue কাউন্টারের লাইন—আগে আসা মানুষ আগে সেবা পায়।",
+    "concepts": [
+      "Stack: push/pop/peek এবং LIFO।",
+      "Queue: enqueue/dequeue এবং FIFO।",
+      "Structure বাছাই operation pattern-এর ওপর নির্ভর করে।"
+    ],
+    "language": "python",
+    "code": "from collections import deque\nstack = []\nstack.append(\"পৃষ্ঠা-১\")\nstack.append(\"পৃষ্ঠা-২\")\nprint(stack.pop())\nqueue = deque([\"রহিম\", \"করিম\"])\nqueue.append(\"সুমি\")\nprint(queue.popleft())\nprint(list(queue))",
+    "mistakes": [
+      "বড় queue-তে list `pop(0)`-কে efficient মনে করা।",
+      "Empty stack/queue থেকে item নেওয়ার error handling বাদ দেওয়া।",
+      "LIFO ও FIFO গুলিয়ে ফেলা।"
+    ],
+    "exercises": [
+      [
+        "A তারপর B push করলে প্রথম pop কী?",
+        "B, কারণ LIFO।"
+      ],
+      [
+        "A তারপর B enqueue করলে প্রথম dequeue কী?",
+        "A, কারণ FIFO।"
+      ],
+      [
+        "Browser back history-তে stack ধারণা কীভাবে কাজে লাগে?",
+        "সর্বশেষ navigation-এর আগের state-এ ফিরে যাওয়ার ক্রম stack-এর সঙ্গে মেলে; browser-এর বাস্তব history অবশ্য আরও জটিল।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/library/collections.html#collections.deque",
+      "https://opendsa-server.cs.vt.edu/"
+    ]
+  },
+  {
+    "section": "04-data-structures-algorithms",
+    "slug": "05-trees",
+    "title": "Trees: hierarchy ও traversal",
+    "explanation": "Tree এমন hierarchical structure যেখানে node parent-child সম্পর্কে যুক্ত। Root শীর্ষ node, leaf child-হীন node, subtree কোনো node ও তার descendants। Binary tree-তে প্রতি node-এর সর্বোচ্চ দুই child থাকে। Binary search tree-তে সাধারণ convention অনুযায়ী বাম দিকে ছোট, ডানে বড় মান রাখা হয়; duplicate value-এর নীতি implementation অনুযায়ী আলাদা হতে পারে।\n\nTraversal-এর ক্রম আলাদা: preorder-এ node আগে, inorder-এ left-node-right, postorder-এ children-এর পরে node। Balanced BST-তে search/insert `O(log n)` হতে পারে; tree একদিকে বাঁকা হলে `O(n)` হয়। Folder, menu ও organization chart-এর মতো parent-child data-তে tree উপযোগী।",
+    "analogy": "Folder-এর ভেতরে subfolder-এর hierarchy ভাবো। Root থেকে শাখা বের হয়, আর leaf শেষ প্রান্তের item।",
+    "concepts": [
+      "Root, parent, child, leaf, height ও depth।",
+      "Traversal নির্দিষ্ট ক্রমে node পরিদর্শন করে।",
+      "BST-এর speed balance-এর ওপর নির্ভর করে।"
+    ],
+    "language": "python",
+    "code": "class Node:\n    def __init__(self, value, left=None, right=None):\n        self.value = value\n        self.left = left\n        self.right = right\n\ndef inorder(node):\n    if node is None:\n        return []\n    return inorder(node.left) + [node.value] + inorder(node.right)\n\nroot = Node(4, Node(2, Node(1), Node(3)), Node(6, Node(5), Node(7)))\nprint(inorder(root))",
+    "mistakes": [
+      "BST সবসময় balanced ধরে নেওয়া।",
+      "Recursive traversal-এ base case বাদ দেওয়া।",
+      "Tree-র structure না বুঝে child pointer update করা।"
+    ],
+    "exercises": [
+      [
+        "Root ৪, left ২, right ৬ হলে inorder output কী?",
+        "`[2, 4, 6]`।"
+      ],
+      [
+        "Child-হীন node-কে কী বলে?",
+        "Leaf node।"
+      ],
+      [
+        "Skewed BST-তে worst-case search কী?",
+        "`O(n)`।"
+      ]
+    ],
+    "reading": [
+      "https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/BST.html",
+      "https://visualgo.net/en/bst"
+    ]
+  },
+  {
+    "section": "04-data-structures-algorithms",
+    "slug": "06-graphs",
+    "title": "Graphs: node, edge ও পথ",
+    "explanation": "Graph node/vertex ও edge দিয়ে সম্পর্ক মডেল করে। Directed edge A থেকে B-তে একমুখী হতে পারে; undirected edge দুইমুখী সম্পর্ক বোঝায়। Weighted graph-এ edge-এর সঙ্গে distance, cost বা time থাকে। Map, social network, dependency ও web link graph-এর ব্যবহার।\n\nAdjacency list প্রতিটি node-এর neighbor রাখে এবং sparse graph-এ memory-efficient হতে পারে। Adjacency matrix edge lookup দ্রুত করলেও `O(V²)` space নিতে পারে। BFS queue দিয়ে layer ধরে এগোয় এবং unweighted graph-এ shortest path খুঁজতে পারে; DFS stack বা recursion দিয়ে গভীরে যায়। Cycle সামলাতে visited set দরকার।",
+    "analogy": "শহরের মানচিত্রে মোড় node, রাস্তা edge, আর দূরত্ব edge weight হতে পারে। Graph algorithm সম্ভাব্য পথ তুলনা করে।",
+    "concepts": [
+      "Vertex ও edge সম্পর্ক মডেল করে।",
+      "Adjacency list ও matrix-এর trade-off আলাদা।",
+      "BFS queue ব্যবহার করে; DFS depth-এ যায়।"
+    ],
+    "language": "python",
+    "code": "from collections import deque\ngraph = {\"A\": [\"B\", \"C\"], \"B\": [\"D\"], \"C\": [\"D\"], \"D\": []}\ndef bfs(start):\n    visited = {start}\n    queue = deque([start])\n    order = []\n    while queue:\n        node = queue.popleft()\n        order.append(node)\n        for neighbor in graph[node]:\n            if neighbor not in visited:\n                visited.add(neighbor)\n                queue.append(neighbor)\n    return order\nprint(bfs(\"A\"))",
+    "mistakes": [
+      "Visited set বাদ দিয়ে cyclic graph-এ বারবার ঘোরা।",
+      "Directed edge-কে ভুল করে দুই দিকের ধরে নেওয়া।",
+      "Weighted graph-এ সবসময় BFS-কে minimum-cost path solver ভাবা।"
+    ],
+    "exercises": [
+      [
+        "A→B ও B→C থাকলে A থেকে C-তে পথ আছে?",
+        "হ্যাঁ, A→B→C।"
+      ],
+      [
+        "BFS কোন structure ব্যবহার করে?",
+        "Queue।"
+      ],
+      [
+        "Non-negative unequal weights-এ shortest path-এর জন্য কী দেখবে?",
+        "Dijkstra algorithm; negative edge হলে Bellman–Ford-এর মতো বিকল্প বিবেচনা করো।"
+      ]
+    ],
+    "reading": [
+      "https://networkx.org/documentation/stable/tutorial.html",
+      "https://visualgo.net/en/dfsbfs"
+    ]
+  },
+  {
+    "section": "04-data-structures-algorithms",
+    "slug": "07-hash-tables",
+    "title": "Hash Tables ও Dictionary",
+    "explanation": "Hash table key-কে hash function দিয়ে bucket বা slot-এর সঙ্গে যুক্ত করে। ফলে dictionary/map-এ lookup, insert ও delete গড়ে প্রায় `O(1)` হতে পারে, কিন্তু এটি worst-case guarantee নয়। Collision হলে একাধিক key একই জায়গায় পড়ে; chaining বা open addressing-এর মতো পদ্ধতিতে তা সামলানো হয়। Hash function key-গুলোকে যতটা সম্ভব সমানভাবে ছড়াতে সাহায্য করে।\n\nPython dict-এ hashable key দরকার এবং equality/hash-এর নিয়ম মিলতে হয়। Hash table password encryption নয়। Password storage-এর জন্য salt-সহ Argon2 বা bcrypt-এর মতো password-specific slow hashing algorithm ব্যবহার করা হয়; সাধারণ fast hash যথেষ্ট নয়।",
+    "analogy": "Library catalog number দিয়ে বই খুঁজে পাওয়ার মতো; key-র সাহায্যে দ্রুত value খোঁজা যায়, তবে একই slot-এ collision হলে তা সামলাতে হয়।",
+    "concepts": [
+      "Hash function key থেকে slot/bucket নির্ধারণ করে।",
+      "Collision স্বাভাবিক এবং handle করতে হয়।",
+      "Dictionary-তে key unique; নতুন value দিলে আগের value replace হয়।"
+    ],
+    "language": "python",
+    "code": "prices = {\"কলম\": 12, \"খাতা\": 45, \"স্কেল\": 20}\nprices[\"পেন্সিল\"] = 8\nprint(prices[\"খাতা\"])\nprint(\"রাবার\" in prices)\nfor item, price in prices.items():\n    print(item, price)",
+    "mistakes": [
+      "Hash table সব অবস্থায় `O(1)` ধরে নেওয়া।",
+      "Mutable object-কে key করতে চাওয়া।",
+      "Password storage-এ general fast hash ব্যবহার করা।"
+    ],
+    "exercises": [
+      [
+        "`prices['খাতা']` কী?",
+        "৪৫।"
+      ],
+      [
+        "একই key-তে নতুন value রাখলে কী হয়?",
+        "ঐ key-এর পুরোনো value replace হয়।"
+      ],
+      [
+        "Hash collision কী?",
+        "দুটি আলাদা key একই bucket বা position-এ map হতে পারে।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/library/stdtypes.html#mapping-types-dict",
+      "https://docs.python.org/3/reference/datamodel.html#object.__hash__"
+    ]
+  },
+  {
+    "section": "04-data-structures-algorithms",
+    "slug": "08-sorting-searching-dp",
+    "title": "Sorting, Searching ও Dynamic Programming",
+    "explanation": "Sorting data-কে ক্রমে সাজায়; searching target খোঁজে। Linear search unsorted list-এ একে একে পরীক্ষা করে `O(n)` সময় নেয়। Binary search sorted list-কে বারবার অর্ধেক করে `O(log n)` সময় নেয়; data sorted থাকা আবশ্যক। Merge sort সাধারণত `O(n log n)` সময় ও extra memory নেয়; quicksort গড়ে দ্রুত, তবে bad pivot-এ worst case `O(n²)` হতে পারে। Stability, in-place behavior ও input size-ও বিবেচনা করো।\n\nDynamic programming (DP) তখন কাজে লাগে যখন subproblem overlap করে এবং বড় সমস্যার উত্তরে ছোট সমস্যার result লাগে। Memoization recursive result cache করে; tabulation ছোট state থেকে table ভরে। Fibonacci-এর naive recursion একই কাজ বারবার করে; DP প্রতিটি value একবার হিসাব করতে পারে। DP শুরু করার আগে state, transition এবং base case নির্ধারণ করো।",
+    "analogy": "সাজানো অভিধানে মাঝখান থেকে শব্দ খুঁজে অর্ধেক দিক বাদ দেওয়া যায়। DP হলো একই অঙ্কের উত্তর খাতায় রেখে পরে আবার ব্যবহার করা।",
+    "concepts": [
+      "Linear search unsorted data-তেও চলে।",
+      "Binary search-এর জন্য sorted data দরকার।",
+      "DP overlapping subproblem ও optimal substructure কাজে লাগায়।"
+    ],
+    "language": "python",
+    "code": "def binary_search(values, target):\n    low, high = 0, len(values) - 1\n    while low <= high:\n        middle = (low + high) // 2\n        if values[middle] == target:\n            return middle\n        if values[middle] < target:\n            low = middle + 1\n        else:\n            high = middle - 1\n    return -1\ndef fib(n):\n    if n < 0:\n        raise ValueError(\"n must be non-negative\")\n    dp = [0, 1]\n    for _ in range(2, n + 1):\n        dp.append(dp[-1] + dp[-2])\n    return dp[n]\nprint(binary_search([2, 5, 8, 12, 16], 12))\nprint(fib(10))",
+    "mistakes": [
+      "Unsorted list-এ binary search ব্যবহার করা।",
+      "Boundary update ভুল করে endless loop তৈরি করা।",
+      "DP state ও base case না ভেবে table তৈরি করা।"
+    ],
+    "exercises": [
+      [
+        "`[1, 4, 7, 9]`-এ ৭-এর index কী?",
+        "Zero-based index ২।"
+      ],
+      [
+        "Linear search worst-case time complexity?",
+        "`O(n)`।"
+      ],
+      [
+        "DP Fibonacci naive recursion-এর চেয়ে দ্রুত কেন?",
+        "আগে হিসাব করা value reuse করে duplicate computation এড়ায়; tabulation `O(n)` সময় নেয়।"
+      ]
+    ],
+    "reading": [
+      "https://visualgo.net/en/sorting",
+      "https://cp-algorithms.com/",
+      "https://www.geeksforgeeks.org/dynamic-programming/"
+    ]
+  },
+  {
+    "section": "05-databases",
+    "slug": "01-sql-and-relational-databases",
+    "title": "Relational Database ও SQL",
+    "explanation": "Relational database data-কে table, row ও column-এ সাজায়। Students বা courses-এর মতো প্রতিটি table একটি বিষয় রাখে। Primary key প্রতিটি row-কে অনন্যভাবে চিহ্নিত করে; data type ও constraint ভুল data ঠেকায়। SQL দিয়ে schema তৈরি, data insert/update/delete ও query করা যায়।\n\n`SELECT` column বেছে নেয়, `FROM` table, `WHERE` filter, `ORDER BY` sort এবং `LIMIT` result সীমিত করে। User input সরাসরি query string-এ জুড়লে SQL injection হতে পারে; parameterized query ব্যবহার করো। ভালো schema-তে key, nullability, data format ও domain rule স্পষ্ট থাকে।",
+    "analogy": "Spreadsheet-এর মতো table হলেও database constraint ও relation নির্দিষ্ট করে। Student ID পরিচয়পত্রের মতো, যা একই নামের দুই শিক্ষার্থীকে আলাদা করতে পারে।",
+    "concepts": [
+      "Table row ও column দিয়ে data রাখে।",
+      "Primary key প্রতিটি row-কে uniquely চিহ্নিত করে।",
+      "Parameterized query user input-কে SQL structure থেকে আলাদা রাখে।"
+    ],
+    "language": "sql",
+    "code": "CREATE TABLE students (\n    id INTEGER PRIMARY KEY,\n    name TEXT NOT NULL,\n    age INTEGER CHECK (age >= 0)\n);\nINSERT INTO students (id, name, age) VALUES (1, 'Samia', 20);\nSELECT id, name FROM students WHERE age >= 18 ORDER BY name;",
+    "mistakes": [
+      "User input query string-এ concatenate করা।",
+      "শুধু নাম দিয়ে row চিহ্নিত করা।",
+      "Column meaning ও constraints না ভেবে schema বানানো।"
+    ],
+    "exercises": [
+      [
+        "Primary key-এর কাজ কী?",
+        "প্রতিটি row-কে নির্ভরযোগ্যভাবে স্বতন্ত্র চিহ্নিত করে।"
+      ],
+      [
+        "১৮ বা তার বেশি বয়সের student দেখাতে কোন clause?",
+        "`WHERE age >= 18`।"
+      ],
+      [
+        "SQL injection ঠেকাতে কী ব্যবহার করবে?",
+        "Prepared/parameterized query এবং সীমিত database permission।"
+      ]
+    ],
+    "reading": [
+      "https://www.postgresql.org/docs/current/tutorial.html",
+      "https://sqlbolt.com/"
+    ]
+  },
+  {
+    "section": "05-databases",
+    "slug": "02-joins-and-normalization",
+    "title": "JOIN ও Database Normalization",
+    "explanation": "Student ও course-এর তথ্য আলাদা table-এ থাকলে JOIN matching key-এর ভিত্তিতে সেগুলো মিলিয়ে দেখায়। `INNER JOIN` matching row দেয়; `LEFT JOIN` বাম table-এর সব row রাখে, ডান দিকে match না থাকলে NULL দেখায়। Join condition ভুল হলে duplicate বা অপ্রত্যাশিত row তৈরি হতে পারে, তাই key ও relationship বোঝা জরুরি।\n\nNormalization duplicate data ও update anomaly কমায়। একই course name প্রতিটি enrollment row-তে রাখলে name বদলাতে বহু row update করতে হবে। Course আলাদা table-এ রেখে relationship foreign key দিয়ে প্রকাশ করলে তথ্য এক জায়গায় maintain করা যায়। অতিরিক্ত normalization ও read performance-এর trade-off থাকতে পারে, কিন্তু data integrity দিয়ে শুরু করো।",
+    "analogy": "স্কুলের student register ও course register আলাদা; ID দিয়ে প্রয়োজনের সময় দুই register মেলানো হয়, নাম বারবার লিখতে হয় না।",
+    "concepts": [
+      "JOIN related table-এর row মেলায়।",
+      "Foreign key অন্য table-এর key reference করে।",
+      "Normalization duplicate data ও update anomaly কমায়।"
+    ],
+    "language": "sql",
+    "code": "CREATE TABLE courses (id INTEGER PRIMARY KEY, title TEXT NOT NULL);\nCREATE TABLE enrollments (student_id INTEGER, course_id INTEGER REFERENCES courses(id));\nINSERT INTO courses VALUES (1, 'HTML'), (2, 'SQL');\nINSERT INTO enrollments VALUES (10, 1), (11, 2);\nSELECT e.student_id, c.title\nFROM enrollments AS e\nJOIN courses AS c ON c.id = e.course_id;",
+    "mistakes": [
+      "JOIN condition বাদ দিয়ে accidental cartesian product তৈরি করা।",
+      "এক table-এ course name বারবার রাখা।",
+      "LEFT JOIN-এ NULL আসতে পারে তা উপেক্ষা করা।"
+    ],
+    "exercises": [
+      [
+        "INNER JOIN কী ফেরায়?",
+        "Join condition-এ matching row-গুলো।"
+      ],
+      [
+        "Enroll না করা student-সহ সব student দেখাতে কী join লাগতে পারে?",
+        "Students table থেকে enrollments-এ `LEFT JOIN`।"
+      ],
+      [
+        "Course title এক জায়গায় রাখার সুবিধা কী?",
+        "Name বদলালে এক row update হয়, duplicate ও inconsistency কমে।"
+      ]
+    ],
+    "reading": [
+      "https://www.postgresql.org/docs/current/queries-table-expressions.html",
+      "https://sqlbolt.com/lesson/select_queries_with_joins"
+    ]
+  },
+  {
+    "section": "05-databases",
+    "slug": "03-indexes-transactions",
+    "title": "Indexes ও Transactions",
+    "explanation": "Index table-এ row খুঁজতে সাহায্য করে, বইয়ের সূচির মতো। Index না থাকলে database-কে অনেক row scan করতে হতে পারে। তবে index storage নেয় এবং insert/update/delete-এ update করতে হয়; সব column-এ index বানানো বুদ্ধিমানের কাজ নয়। Query plan, query pattern ও data distribution দেখে index নির্বাচন করো।\n\nTransaction একাধিক operation-কে এক logical unit হিসেবে চালায়। ACID হলো Atomicity, Consistency, Isolation ও Durability। ব্যাংক transfer-এ এক account থেকে টাকা কমে অন্য account-এ যোগ না হলে data ভুল; transaction আংশিক update commit হওয়া আটকাতে পারে। Concurrent access-এ isolation level ও lock performance এবং correctness-এর trade-off তৈরি করতে পারে।",
+    "analogy": "বইয়ের সূচি দ্রুত বিষয় খুঁজে দেয়, কিন্তু সূচি তৈরি ও update করার খরচ আছে। Transaction এমন transfer, যেখানে পুরো কাজ সফল হবে নয়তো rollback হবে।",
+    "concepts": [
+      "Index নির্দিষ্ট query দ্রুত করতে পারে।",
+      "Transaction একাধিক change-কে atomic unit করে।",
+      "ACID reliable database operation বোঝার ভিত্তি।"
+    ],
+    "language": "sql",
+    "code": "CREATE TABLE accounts (id INTEGER PRIMARY KEY, balance INTEGER NOT NULL CHECK (balance >= 0));\nINSERT INTO accounts VALUES (1, 1000), (2, 200);\nBEGIN;\nUPDATE accounts SET balance = balance - 500 WHERE id = 1;\nUPDATE accounts SET balance = balance + 500 WHERE id = 2;\nCOMMIT;\nSELECT id, balance FROM accounts ORDER BY id;\nCREATE TABLE students (id INTEGER PRIMARY KEY, name TEXT NOT NULL);\nCREATE INDEX idx_students_name ON students(name);",
+    "mistakes": [
+      "অপ্রয়োজনীয় index দিয়ে write cost বাড়ানো।",
+      "ভুল WHERE clause-এ অনেক row update করা।",
+      "Transaction commit/rollback-এর আগে connection ছেড়ে দেওয়া।"
+    ],
+    "exercises": [
+      [
+        "Index-এর সুবিধা ও খরচ লেখো।",
+        "Query দ্রুত হতে পারে; storage লাগে ও write-এর সময় index update হয়।"
+      ],
+      [
+        "Transfer-এর দ্বিতীয় update ব্যর্থ হলে কী করতে হবে?",
+        "Transaction rollback করতে হবে যাতে আংশিক transfer স্থায়ী না হয়।"
+      ],
+      [
+        "Slow query-তে প্রথমে কী দেখবে?",
+        "Query plan, WHERE filter, JOIN, index ও data distribution।"
+      ]
+    ],
+    "reading": [
+      "https://www.postgresql.org/docs/current/indexes.html",
+      "https://www.postgresql.org/docs/current/tutorial-transactions.html"
+    ]
+  },
+  {
+    "section": "06-networking",
+    "slug": "01-tcp-ip",
+    "title": "TCP/IP ও নেটওয়ার্ক যোগাযোগ",
+    "explanation": "Network-এ device নিয়ম মেনে data বিনিময় করে। TCP/IP suite-এ IP address ও routing-এ কাজ করে; TCP ordered reliable byte stream দেয়; UDP কম overhead-এ datagram পাঠায় কিন্তু delivery guarantee দেয় না। Packet loss, delay, congestion ও reset হতে পারে, তাই application-এ timeout এবং error handling দরকার।\n\nIP address host/interface-কে address করে, port একই host-এর service আলাদা করে। TCP connection establish করতে handshake হয়। TCP reliable হলেই data encrypted নয়; TLS encryption ও server identity validation-এ সাহায্য করে। Troubleshooting-এ DNS, IP reachability, port, TLS ও application response আলাদা করে পরীক্ষা করো।",
+    "analogy": "ডাকব্যবস্থার মতো: IP গন্তব্য address করে, আর TCP delivery-র ক্রম ও missing data সামলাতে চেষ্টা করে।",
+    "concepts": [
+      "IP addressing ও routing করে।",
+      "TCP ordered reliable stream, UDP datagram দেয়।",
+      "Port একই host-এর service আলাদা করে।"
+    ],
+    "language": "python",
+    "code": "import socket\naddress = (\"example.com\", 80)\nwith socket.create_connection(address, timeout=5) as connection:\n    connection.sendall(b\"GET / HTTP/1.1\\r\\nHost: example.com\\r\\nConnection: close\\r\\n\\r\\n\")\n    response = connection.recv(200)\n    print(response.decode(\"latin-1\", errors=\"replace\"))",
+    "mistakes": [
+      "TCP/IP-কে একটিমাত্র protocol ভাবা।",
+      "Port-কে IP address-এর বিকল্প মনে করা।",
+      "TCP নিজেই encryption দেয় ধরে নেওয়া।"
+    ],
+    "exercises": [
+      [
+        "TCP ও UDP-এর মূল পার্থক্য কী?",
+        "TCP ordered reliable stream দেয়; UDP datagram পাঠায় কিন্তু নিজে delivery/order guarantee দেয় না।"
+      ],
+      [
+        "এক server-এ port কেন দরকার?",
+        "এক host-এ web, SSH ইত্যাদি service-এর traffic আলাদা করতে।"
+      ],
+      [
+        "TCP connection কি গোপনীয়তা নিশ্চিত করে?",
+        "না; data transit encrypt করতে TLS-এর মতো protocol লাগে।"
+      ]
+    ],
+    "reading": [
+      "https://www.rfc-editor.org/rfc/rfc9293.html",
+      "https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview"
+    ]
+  },
+  {
+    "section": "06-networking",
+    "slug": "02-dns",
+    "title": "DNS: ডোমেইন নাম থেকে IP",
+    "explanation": "Domain Name System মানুষের মনে রাখার মতো নামকে IP address ও অন্যান্য resource record-এর সঙ্গে যুক্ত করে। Browser domain খুললে resolver DNS lookup করে; cache-এ উত্তর থাকলে authoritative server-এ আবার যেতে হয় না। A record IPv4, AAAA IPv6, CNAME alias, MX mail server এবং TXT text information রাখতে পারে।\n\nDNS hierarchy-তে root, top-level domain ও authoritative name server ভূমিকা রাখে। TTL বলে cache কতক্ষণ record রাখবে। DNS update সব user-এর কাছে একই মুহূর্তে দেখা যায় না, কারণ cache-এ পুরোনো উত্তর থাকতে পারে। DNS resolution সফল হলেও web server বন্ধ থাকতে পারে; তাই name resolution ও service reachability আলাদা করে যাচাই করো।",
+    "analogy": "ফোনের contact list-এ নাম দিয়ে নম্বর পাওয়া যায়। DNS domain name-এর সঙ্গে network information খুঁজে দেয়।",
+    "concepts": [
+      "Resolver client-এর হয়ে DNS query করে।",
+      "A/AAAA address, MX mail server, CNAME alias দেয়।",
+      "TTL cache duration নির্দেশ করে।"
+    ],
+    "language": "bash",
+    "code": "nslookup example.com\ndig example.com A\ndig example.com MX\ngetent hosts example.com",
+    "mistakes": [
+      "DNS response-কে website সব ঠিক আছে বলে ধরে নেওয়া।",
+      "TTL থাকা সত্ত্বেও DNS change সঙ্গে সঙ্গে সবখানে হবে ধরে নেওয়া।",
+      "CNAME ও address record গুলিয়ে ফেলা।"
+    ],
+    "exercises": [
+      [
+        "কোন record IPv6 address দেয়?",
+        "AAAA record।"
+      ],
+      [
+        "DNS cache-এর সুবিধা কী?",
+        "Repeated upstream query ও latency কমায়।"
+      ],
+      [
+        "DNS ঠিক, কিন্তু page load না হলে আর কী পরীক্ষা করবে?",
+        "IP reachability, port, TLS certificate, HTTP server ও application error।"
+      ]
+    ],
+    "reading": [
+      "https://www.cloudflare.com/learning/dns/what-is-dns/",
+      "https://www.rfc-editor.org/rfc/rfc1035.html"
+    ]
+  },
+  {
+    "section": "06-networking",
+    "slug": "03-https-and-security",
+    "title": "HTTPS, TLS ও নিরাপদ সংযোগ",
+    "explanation": "HTTPS হলো TLS-এর মধ্যে HTTP চালানো। TLS transit-এ data encrypt করে এবং certificate দিয়ে server identity যাচাইয়ে সহায়তা করে। Browser certificate chain, expiry ও hostname পরীক্ষা করে; security warning উপেক্ষা করলে impostor server-এর ঝুঁকি থাকে। HTTPS transit security বাড়ায়, কিন্তু server-এ stored data, user identity বা application bug নিজে থেকে নিরাপদ করে না।\n\nWeb security-তে authentication, authorization, input validation, secure cookie, CSRF/XSS protection, dependency update ও secret management-ও দরকার। Password plain text-এ রাখা উচিত নয়; password-specific hashing ব্যবহার করো। Certificate expiry, mixed content ও exposed secret ঝুঁকি তৈরি করে। Security হলো নিয়মিত review ও patching-এর প্রক্রিয়া।",
+    "analogy": "সিল করা খাম ও প্রেরকের পরিচয় যাচাইয়ের মতো। HTTPS মাঝপথে data পড়া/বদলানো কঠিন করে এবং certificate server-এর identity যাচাই করে।",
+    "concepts": [
+      "TLS encryption ও integrity দেয়।",
+      "Authentication পরিচয় যাচাই; authorization permission নির্ধারণ।",
+      "HTTPS application vulnerability স্বয়ংক্রিয়ভাবে ঠিক করে না।"
+    ],
+    "language": "bash",
+    "code": "curl -I https://example.com\nopenssl s_client -connect example.com:443 -servername example.com </dev/null",
+    "mistakes": [
+      "Padlock দেখেই পুরো application নিরাপদ ভাবা।",
+      "TLS warning উপেক্ষা করে password দেওয়া।",
+      "API secret source code-এ রাখা।"
+    ],
+    "exercises": [
+      [
+        "HTTPS data-কে কীভাবে সুরক্ষা দেয়?",
+        "TLS-এর মাধ্যমে connection-এ data encrypt ও integrity-protected করে।"
+      ],
+      [
+        "Authentication ও authorization কীভাবে আলাদা?",
+        "প্রথমটি পরিচয় যাচাই, দ্বিতীয়টি অনুমতি নির্ধারণ।"
+      ],
+      [
+        "HTTPS থাকলেও XSS কেন হতে পারে?",
+        "HTTPS transit রক্ষা করে; unsafe input render করার application bug আলাদা।"
+      ]
+    ],
+    "reading": [
+      "https://developer.mozilla.org/en-US/docs/Web/Security",
+      "https://www.rfc-editor.org/rfc/rfc8446.html"
+    ]
+  },
+  {
+    "section": "07-operating-systems",
+    "slug": "01-processes-threads",
+    "title": "Processes, Threads ও Concurrency",
+    "explanation": "Process হলো চলমান program, যার সাধারণত নিজস্ব virtual address space থাকে। Thread একই process-এর resource ভাগ করে execution চালায়। আলাদা process isolation দেয়, তবে process-গুলোর মধ্যে IPC লাগে; shared-memory thread দ্রুত হতে পারে, কিন্তু race condition-এর ঝুঁকি থাকে।\n\nConcurrency-তে কাজের অগ্রগতি overlap হয়; parallelism-এ কাজ একই সময়ে hardware-এ চলে। Single core-এ scheduler context switch করে concurrency দিতে পারে; multi-core-এ কাজ parallel হতে পারে। Lock, queue, atomic operation ও immutable data race কমাতে সাহায্য করে। ভুল lock ordering deadlock তৈরি করতে পারে।",
+    "analogy": "রেস্টুরেন্টের আলাদা অর্ডার process, আর একই রান্নাঘরের কর্মীরা thread-এর মতো; shared ingredient-এ সমন্বয় না থাকলে conflict হয়।",
+    "concepts": [
+      "Process isolation দেয়; thread process memory ভাগ করে।",
+      "Concurrency ও parallelism এক নয়।",
+      "Race condition shared state-এর unsynchronized access থেকে আসতে পারে।"
+    ],
+    "language": "python",
+    "code": "from concurrent.futures import ThreadPoolExecutor\nfrom urllib.request import urlopen\ndef fetch_status(url):\n    with urlopen(url, timeout=5) as response:\n        return url, response.status\nwith ThreadPoolExecutor(max_workers=2) as pool:\n    for result in pool.map(fetch_status, [\"https://example.com\", \"https://www.iana.org\"]):\n        print(result)",
+    "mistakes": [
+      "Shared variable বহু thread বদলালেও নিরাপদ ধরে নেওয়া।",
+      "Concurrency সব CPU-bound code দ্রুত করবে ভাবা।",
+      "Deadlock-এর সম্ভাবনা উপেক্ষা করা।"
+    ],
+    "exercises": [
+      [
+        "Process ও thread-এর একটি পার্থক্য লেখো।",
+        "Process সাধারণত আলাদা address space পায়; একই process-এর thread memory ভাগ করে।"
+      ],
+      [
+        "Race condition-এর উদাহরণ কী?",
+        "দুই thread একই counter পড়া-লেখা করলে increment হারিয়ে যেতে পারে।"
+      ],
+      [
+        "Network I/O-তে thread উপকারী কেন?",
+        "এক request অপেক্ষা করলে অন্য কাজ এগোতে পারে; ফল workload ও runtime-এর ওপর নির্ভর করে।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/library/concurrent.futures.html",
+      "https://learn.microsoft.com/en-us/windows/win32/procthread/processes-and-threads"
+    ]
+  },
+  {
+    "section": "07-operating-systems",
+    "slug": "02-memory-and-filesystems",
+    "title": "Memory Management ও File Systems",
+    "explanation": "Program-এর logical address virtual address space-এ থাকে; OS ও hardware page table দিয়ে virtual address physical memory-তে map করে। Virtual memory isolation ও protection দেয়। Page fault হলে OS-কে memory access-এর জন্য handling করতে হয়; RAM কমে page বারবার storage-এ সরলে thrashing এবং performance drop হতে পারে।\n\nFilesystem file metadata, directory ও storage block সংগঠিত করে। Permission কে read/write/execute করবে তা সীমিত করে। File write হয়েছে দেখালেই সব পরিস্থিতিতে durable হয়েছে ধরে নেওয়া যায় না; cache ও filesystem semantics প্রভাব ফেলে। Backup-এর পাশাপাশি restore test দরকার, কারণ corrupt বা incomplete backup recovery-তে কাজে নাও লাগতে পারে।",
+    "analogy": "RAM হলো ডেস্ক আর storage আলমারি। ডেস্কে জায়গা শেষ হলে বারবার আলমারি থেকে কাগজ আনতে হলে কাজ ধীর হয়।",
+    "concepts": [
+      "Virtual memory address translation ও isolation-এ সাহায্য করে।",
+      "Page fault memory access-এ OS/hardware handling প্রয়োজন বোঝায়।",
+      "Filesystem data ও metadata সাজায়; permission access নিয়ন্ত্রণ করে।"
+    ],
+    "language": "python",
+    "code": "from pathlib import Path\npath = Path(\"report.txt\")\npath.write_text(\"ফাইল সিস্টেমের অনুশীলন\", encoding=\"utf-8\")\nprint(path.stat().st_size)\nprint(path.read_text(encoding=\"utf-8\"))",
+    "mistakes": [
+      "Virtual memory-কে শুধু swap disk মনে করা।",
+      "Backup আছে মানেই restore ঠিক হবে ভাবা।",
+      "সব OS-এ permission behavior এক ধরে নেওয়া।"
+    ],
+    "exercises": [
+      [
+        "RAM-এর তুলনায় storage access ধীর হলে কী হয়?",
+        "Page storage থেকে বারবার আনতে হলে wait বাড়ে ও performance কমে।"
+      ],
+      [
+        "Backup restore test কেন জরুরি?",
+        "Backup incomplete বা corrupt হলে recovery ব্যর্থ হতে পারে।"
+      ],
+      [
+        "File permission-এর উদ্দেশ্য কী?",
+        "কোন user/process file পড়তে, লিখতে বা execute করতে পারবে তা নির্ধারণ।"
+      ]
+    ],
+    "reading": [
+      "https://www.kernel.org/doc/html/latest/admin-guide/mm/",
+      "https://www.redhat.com/sysadmin/linux-file-permissions-explained"
+    ]
+  },
+  {
+    "section": "07-operating-systems",
+    "slug": "03-linux-shell-and-permissions",
+    "title": "Linux Shell, Path ও Permissions",
+    "explanation": "Linux shell-এ command, argument ও pipe দিয়ে ছোট tool একত্র করা যায়। `grep` text খোঁজে, `sort` সাজায়, `wc` গণনা করে; pipe `|` এক command-এর output পরের command-এ পাঠায়। Unix file permission-এ owner, group ও others-এর read/write/execute অধিকার থাকে। `chmod` permission বদলায়; `sudo` elevated privilege-এ command চালাতে পারে, তাই অপ্রয়োজনে ব্যবহার করা উচিত নয়।\n\nEnvironment variable process-কে configuration দেয়; `PATH` executable খোঁজার directory জানায়। Script-এ absolute path ধরে নিলে অন্য machine-এ নাও চলতে পারে। Shell-এ spaces, wildcard ও quoting গুরুত্বপূর্ণ। User input দিয়ে shell command string তৈরি করা ঝুঁকিপূর্ণ; argument list ও নিরাপদ API ব্যবহার করো।",
+    "analogy": "Toolbox-এর ছোট tool জুড়ে কাজ করার মতো; একটি tool output দেয়, pipe তা পরের tool-এ পাঠায়।",
+    "concepts": [
+      "Pipe output-কে পরের command-এর input করে।",
+      "Permission least privilege অনুসারে সীমিত রাখো।",
+      "Environment variable configuration ও executable search-এ ব্যবহৃত হয়।"
+    ],
+    "language": "bash",
+    "code": "printf 'delta\\nalpha\\nbeta\\n' > names.txt\nsort names.txt | grep 'a'\nwc -l names.txt\nchmod u+x names.txt\nprintf '%s\\n' \"$PATH\"",
+    "mistakes": [
+      "সব ক্ষেত্রে `sudo` ব্যবহার করা।",
+      "Permission 777 করে সমস্যা ঢেকে রাখা।",
+      "Space-যুক্ত filename quote না করা।"
+    ],
+    "exercises": [
+      [
+        "`sort names.txt | grep 'a'` কী করে?",
+        "Line sort করে, তারপর `a` থাকা line filter করে।"
+      ],
+      [
+        "`chmod u+x file` কী করে?",
+        "Owner-এর execute permission যোগ করে।"
+      ],
+      [
+        "`PATH` কেন দরকার?",
+        "Shell executable command কোন directory-তে খুঁজবে তা জানায়।"
+      ]
+    ],
+    "reading": [
+      "https://ubuntu.com/tutorials/command-line-for-beginners",
+      "https://www.gnu.org/software/bash/manual/bash.html"
+    ]
+  },
+  {
+    "section": "08-software-engineering",
+    "slug": "01-object-oriented-programming",
+    "title": "Object-Oriented Programming (OOP)",
+    "explanation": "OOP-তে state ও behavior object/class দিয়ে সংগঠিত হয়। Class হলো instance তৈরির blueprint; object তার নির্দিষ্ট instance। Encapsulation internal state ও public interface আলাদা করে। Inheritance behavior সম্প্রসারণ করতে পারে, কিন্তু গভীর hierarchy জটিল; polymorphism একই interface-এর ভিন্ন implementation ব্যবহারের সুযোগ দেয়।\n\nOOP একমাত্র সমাধান নয়। State ও behavior ঘনিষ্ঠভাবে সম্পর্কিত হলে class সুবিধাজনক; ছোট transformation-এর জন্য function সহজ হতে পারে। Constructor initial state তৈরি করে। Method-এর precondition, side effect ও invariant বোঝা দরকার। Composition—এক object-এর ভেতরে অন্য object ব্যবহার—অনেক সময় inheritance-এর চেয়ে flexible।",
+    "analogy": "Mobile phone-এর public button ব্যবহার করা যায়, ভেতরের সার্কিটের সব detail জানতে হয় না। Encapsulation implementation detail আড়াল করে।",
+    "concepts": [
+      "Class থেকে instance তৈরি হয়।",
+      "Encapsulation state ও interface আলাদা রাখে।",
+      "Inheritance ও composition-এর trade-off আছে।",
+      "Polymorphism একই contract-এ ভিন্ন implementation চালায়।"
+    ],
+    "language": "python",
+    "code": "class BankAccount:\n    def __init__(self, owner, balance=0):\n        if balance < 0:\n            raise ValueError(\"balance cannot be negative\")\n        self.owner = owner\n        self._balance = balance\n    def deposit(self, amount):\n        if amount <= 0:\n            raise ValueError(\"amount must be positive\")\n        self._balance += amount\n    @property\n    def balance(self):\n        return self._balance\naccount = BankAccount(\"Samia\", 100)\naccount.deposit(50)\nprint(account.balance)",
+    "mistakes": [
+      "প্রতিটি ছোট কাজের জন্য class বানানো।",
+      "Internal state-এ যেকোনো জায়গা থেকে পরিবর্তন অনুমোদন করা।",
+      "শুধু code reuse-এর জন্য অপ্রাসঙ্গিক inheritance করা।"
+    ],
+    "exercises": [
+      [
+        "Class ও object-এর পার্থক্য কী?",
+        "Class blueprint; object ওই class-এর instance।"
+      ],
+      [
+        "Deposit-এর আগে amount validate কেন?",
+        "Invalid amount state invariant নষ্ট করতে পারে।"
+      ],
+      [
+        "Composition-এর উদাহরণ দাও।",
+        "Car-এর ভেতরে Engine object রাখা; engine behavior inherit না করে object-টি ব্যবহার করা।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/tutorial/classes.html",
+      "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects"
+    ]
+  },
+  {
+    "section": "08-software-engineering",
+    "slug": "02-functional-programming-and-design-patterns",
+    "title": "Functional Programming ও Design Patterns",
+    "explanation": "Functional programming pure function, immutable data, composition এবং side effect সীমিত রাখায় জোর দেয়। Pure function একই input-এ একই output দেয় এবং বাইরের state বদলায় না; তাই test ও reasoning সহজ হয়। `map`, `filter` ও `reduce` collection transform করতে পারে। লক্ষ্য mutation নিষিদ্ধ করা নয়, বরং state পরিবর্তন কোথায় হয় তা স্পষ্ট করা।\n\nDesign pattern বারবার দেখা software design problem-এর পরিচিত সমাধানের কাঠামো, copy-paste code নয়। Strategy interchangeable behavior, Observer event-এ subscriber notification, Factory object creation আলাদা করতে পারে। Problem না বুঝে pattern বসালে abstraction বাড়ে; আগে সহজ সমাধান চেষ্টা করো, পরে প্রয়োজন থাকলে pattern নাও।",
+    "analogy": "একই উপকরণে একই ফল দেয় এমন recipe pure function-এর মতো। Design pattern হলো কাজের নকশা—সমস্যা মিলে গেলে ব্যবহার করো, জোর করে নয়।",
+    "concepts": [
+      "Pure function external visible side effect করে না।",
+      "Immutable style shared-state bug কমাতে পারে।",
+      "Pattern-এর মূল্য problem-fit-এ, নাম ব্যবহারে নয়।"
+    ],
+    "language": "python",
+    "code": "prices = [100, 250, 80]\nwith_tax = list(map(lambda price: round(price * 1.05, 2), prices))\nexpensive = list(filter(lambda price: price >= 100, prices))\nprint(with_tax)\nprint(expensive)\nclass PercentageDiscount:\n    def __init__(self, percent):\n        self.percent = percent\n    def apply(self, total):\n        return total * (1 - self.percent / 100)\ndef checkout(total, strategy):\n    return strategy.apply(total)\nprint(checkout(500, PercentageDiscount(10)))",
+    "mistakes": [
+      "Pure function-এর নামে global state/file I/O লুকানো।",
+      "প্রতিটি conditional-কে জটিল pattern দিয়ে বদলানো।",
+      "Problem-fit না দেখে pattern প্রয়োগ করা।"
+    ],
+    "exercises": [
+      [
+        "Pure function-এর একটি গুণ লেখো।",
+        "একই input-এ একই output দেয় এবং বাইরে দৃশ্যমান state বদলায় না।"
+      ],
+      [
+        "৫০০ টাকায় ১০% discount-এর ফল কত?",
+        "৪৫০।"
+      ],
+      [
+        "বিভিন্ন payment method পাল্টে ব্যবহার করতে কোন pattern উপকারী?",
+        "Common interface-সহ Strategy pattern।"
+      ]
+    ],
+    "reading": [
+      "https://docs.python.org/3/howto/functional.html",
+      "https://refactoring.guru/design-patterns/catalog"
+    ]
+  },
+  {
+    "section": "08-software-engineering",
+    "slug": "03-testing-and-ci-cd",
+    "title": "Testing, CI ও CD",
+    "explanation": "Testing নির্দিষ্ট condition-এ software প্রত্যাশিত result দেয় কি না যাচাই করে। Unit test ছোট function/module, integration test component-এর সংযোগ, আর end-to-end test user flow পরীক্ষা করে। Happy path-এর পাশাপাশি boundary, invalid input ও failure case অন্তর্ভুক্ত করো। আচরণ যাচাই করা test refactor সহজ রাখে; implementation detail-এ অতিরিক্ত বাঁধা test brittle হয়।\n\nContinuous Integration (CI) change-এর পর automated build/test চালিয়ে integration bug দ্রুত ধরে। Continuous Delivery software-কে release-ready রাখে; Continuous Deployment সফল gate-এর পর production deploy স্বয়ংক্রিয় করতে পারে। Pipeline-এ lint, test, security check ও build থাকতে পারে। Secret log-এ ছাপিও না; deploy-এর আগে rollback ও database migration পরিকল্পনা করো।",
+    "analogy": "বই ছাপার আগে proofread, page check ও সম্পূর্ণ বই পরীক্ষা করার মতো—unit, integration ও end-to-end test আলাদা স্তরের যাচাই।",
+    "concepts": [
+      "Unit, integration ও end-to-end test-এর scope আলাদা।",
+      "CI change-এর পর automated check চালায়।",
+      "CD release/deployment repeatable করে; rollback পরিকল্পনা প্রয়োজন।"
+    ],
+    "language": "python",
+    "code": "def calculate_discount(total, percent):\n    if total < 0 or not 0 <= percent <= 100:\n        raise ValueError(\"invalid amount or percent\")\n    return total * (1 - percent / 100)\ndef test_calculate_discount():\n    assert calculate_discount(100, 10) == 90\n    assert calculate_discount(0, 50) == 0\ntest_calculate_discount()\nprint(\"tests passed\")",
+    "mistakes": [
+      "Code চলেছে মানেই output ঠিক ধরে নেওয়া।",
+      "Flaky test উপেক্ষা করা।",
+      "CI secret repository বা log-এ প্রকাশ করা।"
+    ],
+    "exercises": [
+      [
+        "একটি boundary test লেখো।",
+        "`assert calculate_discount(100, 0) == 100`।"
+      ],
+      [
+        "CI-এর একটি উদ্দেশ্য কী?",
+        "Change-এর পর automated test/build চালিয়ে integration problem দ্রুত ধরা।"
+      ],
+      [
+        "Delivery ও Deployment-এর প্রচলিত পার্থক্য কী?",
+        "Delivery release-ready state রাখে; Deployment সফল check-এর পর production release স্বয়ংক্রিয় করতে পারে।"
+      ]
+    ],
+    "reading": [
+      "https://docs.pytest.org/en/stable/",
+      "https://docs.github.com/en/actions",
+      "https://martinfowler.com/articles/continuousIntegration.html"
+    ]
+  },
+  {
+    "section": "09-ai-ml",
+    "slug": "01-ai-ml-foundations",
+    "title": "AI ও Machine Learning-এর ভিত্তি",
+    "explanation": "Artificial Intelligence হলো perception, reasoning, planning বা language-এর মতো কাজে কম্পিউটারকে সক্ষম করার বিস্তৃত ক্ষেত্র। Machine Learning AI-এর একটি অংশ; প্রতিটি rule হাতে না লিখে data থেকে pattern শেখানো হয়। Model শেখা pattern দিয়ে prediction বা decision করে। Training data parameter শেখায়, validation data model নির্বাচন করে, আর held-out test data final performance অনুমানে আলাদা রাখা উচিত।\n\nData খারাপ হলে বড় model-ও ভুল বা biased হতে পারে। Feature input তথ্য, label supervised learning-এর expected answer। Machine learning সব সমস্যার উত্তর নয়—rule-based logic বা সাধারণ statistics অধিক উপযুক্ত হতে পারে। Data leakage ও distribution shift result-কে অযথা আশাবাদী করতে পারে।",
+    "analogy": "শিক্ষক উদাহরণ দিয়ে pattern শেখান; শিক্ষার্থী নতুন সমস্যায় প্রয়োগ করে। শেখা উদাহরণের বাইরে গেলে ভুলও হতে পারে, তাই নতুন প্রশ্নে পরীক্ষা জরুরি।",
+    "concepts": [
+      "AI বিস্তৃত ক্ষেত্র; ML data থেকে pattern শেখে।",
+      "Feature input তথ্য; label প্রত্যাশিত target।",
+      "Train, validation ও test set-এর আলাদা উদ্দেশ্য।"
+    ],
+    "language": "python",
+    "code": "from statistics import mean\nhours = [1, 2, 3, 4, 5]\nscores = [42, 48, 57, 65, 71]\nprint(round(mean(hours), 1), round(mean(scores), 1))",
+    "mistakes": [
+      "Correlation-কে causation ধরে নেওয়া।",
+      "Model selection-এর সময় test set বারবার ব্যবহার করা।",
+      "AI সবসময় neutral বা correct বিশ্বাস করা।"
+    ],
+    "exercises": [
+      [
+        "ML-এ label কী?",
+        "Supervised example-এর expected target/answer।"
+      ],
+      [
+        "Test data training-এ ব্যবহার না করার কারণ কী?",
+        "Unseen data-তে generalization স্বাধীনভাবে মূল্যায়ন করতে।"
+      ],
+      [
+        "সব সমস্যায় ML দরকার কি?",
+        "না; rule বা simple algorithm যথেষ্ট হলে সেটিই সহজ ও ব্যাখ্যাযোগ্য।"
+      ]
+    ],
+    "reading": [
+      "https://developers.google.com/machine-learning/crash-course",
+      "https://scikit-learn.org/stable/user_guide.html"
+    ]
+  },
+  {
+    "section": "09-ai-ml",
+    "slug": "02-supervised-unsupervised-learning",
+    "title": "Supervised ও Unsupervised Learning",
+    "explanation": "Supervised learning-এ input-এর সঙ্গে label থাকে। Regression numerical value predict করে, যেমন বিক্রির পরিমাণ; classification category predict করে, যেমন spam/non-spam। Complexity বাড়ালে training performance ভালো হলেও unseen data-তে খারাপ হতে পারে—এটি overfitting। Validation set ও baseline ব্যবহার করে model নির্বাচন করো।\n\nUnsupervised learning label ছাড়া data-র structure খোঁজে। Clustering similar example group করে, dimensionality reduction representation ছোট করে। Cluster মানেই বাস্তব শ্রেণি নয়; domain context দিয়ে ব্যাখ্যা দরকার। Feature scale, missing value, leakage ও class imbalance result প্রভাবিত করে।",
+    "analogy": "উত্তরসহ অনুশীলনপত্র supervised learning-এর মতো; উত্তর ছাড়া অনেক খাতায় pattern খোঁজা unsupervised learning-এর কাছাকাছি।",
+    "concepts": [
+      "Classification category/label predict করে।",
+      "Regression numeric target predict করে।",
+      "Clustering label ছাড়াই similarity-ভিত্তিক group খোঁজে।"
+    ],
+    "language": "python",
+    "code": "from sklearn.model_selection import train_test_split\nfrom sklearn.datasets import load_iris\nfrom sklearn.tree import DecisionTreeClassifier\nfrom sklearn.metrics import accuracy_score\ndata = load_iris()\nX_train, X_test, y_train, y_test = train_test_split(data.data, data.target, test_size=0.25, random_state=42, stratify=data.target)\nmodel = DecisionTreeClassifier(max_depth=3, random_state=42)\nmodel.fit(X_train, y_train)\npredictions = model.predict(X_test)\nprint(accuracy_score(y_test, predictions))",
+    "mistakes": [
+      "Test result দেখে বারবার hyperparameter tune করা।",
+      "Accuracy একাই imbalance বোঝায় ধরে নেওয়া।",
+      "Clustering-কে নিশ্চিত বাস্তব category ধরা।"
+    ],
+    "exercises": [
+      [
+        "ইমেইল spam কি না বলা কোন task?",
+        "Classification।"
+      ],
+      [
+        "আগামী মাসের বিক্রি অনুমান কোন task?",
+        "Regression।"
+      ],
+      [
+        "Label নেই এমন customer-দের আচরণ অনুযায়ী group করা কোন approach?",
+        "Unsupervised clustering।"
+      ]
+    ],
+    "reading": [
+      "https://scikit-learn.org/stable/supervised_learning.html",
+      "https://scikit-learn.org/stable/unsupervised_learning.html"
+    ]
+  },
+  {
+    "section": "09-ai-ml",
+    "slug": "03-model-evaluation-and-responsible-ai",
+    "title": "Model Evaluation ও Responsible AI",
+    "explanation": "Model evaluation metric-কে বাস্তব সিদ্ধান্তের সঙ্গে যুক্ত করতে হয়। Accuracy মোট সঠিক prediction-এর অনুপাত; precision positive prediction-এর মধ্যে সত্য positive-এর হার; recall প্রকৃত positive-এর কত অংশ শনাক্ত হয়েছে তা জানায়। False positive ও false negative-এর cost এক নয়, তাই fraud, medical triage ও spam-এ metric নির্বাচন আলাদা হতে পারে। Confusion matrix error type দেখায়।\n\nResponsible AI-তে privacy, consent, fairness, explainability, safety ও accountability বিবেচনা করা হয়। Dataset-এ কোনো group কম represented হলে performance gap হতে পারে। Sensitive data minimization, access control, retention policy ও audit trail জরুরি। Production input distribution বদলালে model drift হয়; তাই monitoring, feedback এবং rollback/update plan দরকার।",
+    "analogy": "পরীক্ষার মোট নম্বরের পাশাপাশি কোন ধরনের প্রশ্নে ভুল হয়েছে তা দেখার মতো। এক metric দিয়ে model বিচার করলে গুরুত্বপূর্ণ ঝুঁকি আড়াল হতে পারে।",
+    "concepts": [
+      "Precision ও recall আলাদা প্রশ্নের উত্তর দেয়।",
+      "Fairness শুধু এক metric দিয়ে পুরো বোঝা যায় না।",
+      "Deployment-এর পর monitoring ও governance দরকার।"
+    ],
+    "language": "python",
+    "code": "from sklearn.metrics import classification_report, confusion_matrix\ny_true = [1, 1, 0, 0, 1, 0]\ny_pred = [1, 0, 0, 0, 1, 1]\nprint(confusion_matrix(y_true, y_pred))\nprint(classification_report(y_true, y_pred, zero_division=0))",
+    "mistakes": [
+      "শুধু accuracy দেখে false negative উপেক্ষা করা।",
+      "Personal data ব্যবহারের legal/ethical basis উপেক্ষা করা।",
+      "Model deploy করে monitoring বন্ধ করা।"
+    ],
+    "exercises": [
+      [
+        "Precision কম হলে কী ইঙ্গিত হতে পারে?",
+        "Positive prediction-এর মধ্যে false positive বেশি হতে পারে।"
+      ],
+      [
+        "Recall বাড়াতে কী trade-off হতে পারে?",
+        "Positive বেশি ধরতে false positive বাড়তে পারে।"
+      ],
+      [
+        "Model drift কী?",
+        "Production data বা input-target relation বদলে performance কমে যাওয়া।"
+      ]
+    ],
+    "reading": [
+      "https://scikit-learn.org/stable/modules/model_evaluation.html",
+      "https://www.nist.gov/itl/ai-risk-management-framework"
+    ]
+  },
+  {
+    "section": "10-career",
+    "slug": "01-portfolio-and-projects",
+    "title": "Portfolio ও বাস্তব প্রকল্প",
+    "explanation": "Portfolio screenshot-এর সংগ্রহ নয়; সমস্যা বোঝা, সিদ্ধান্ত নেওয়া, কাজ শেষ করা ও ফল ব্যাখ্যা করার প্রমাণ। Project README-তে problem, target user, feature, technology, local setup, screenshot, test instruction এবং limitation থাকা উচিত। Demo-তে accessibility ও error state-সহ কাজ করে কি না যাচাই করো। ছোট কিন্তু সম্পূর্ণ প্রকল্প অস্পষ্ট বড় প্রকল্পের চেয়ে শক্তিশালী প্রমাণ হতে পারে।\n\nতুমি বোঝো এমন সমস্যা বেছে নাও—expense tracker, course catalog বা Bangla text tool। প্রথমে minimum useful scope নির্ধারণ করো, তারপর validation, responsive layout, error handling ও deployment যোগ করো। অন্যের কাজ ব্যবহার করলে license মানো। API key, personal user data বা অনুমতিহীন client content প্রকাশ কোরো না।",
+    "analogy": "Case study-তে শুধু result নয়; problem, process, trade-off ও শেখা বিষয় দেখানো হয়। Portfolio review-তে মানুষ তোমার decision-making দেখতে চায়।",
+    "concepts": [
+      "Problem statement ও target user স্পষ্ট করো।",
+      "README project পুনরুৎপাদনযোগ্য করে।",
+      "Success, empty, loading ও error state পরীক্ষা করো।"
+    ],
+    "language": "markdown",
+    "code": "# Expense Tracker\n\n## Problem\nদৈনিক খরচ category অনুযায়ী দেখা কঠিন।\n\n## Features\n- খরচ যোগ, edit ও delete\n- মাসভিত্তিক total\n- Local data storage\n\n## Run\n1. Repository clone করো।\n2. `index.html` browser-এ খোলো।\n3. Sample expense দিয়ে যাচাই করো।\n\n## Limitations\nএই demo বহু-device sync দেয় না।",
+    "mistakes": [
+      "README-তে কী problem solve করে তা না বলা।",
+      "শুধু happy path দেখানো।",
+      "অনুমতি ছাড়া private code/data/asset প্রকাশ করা।"
+    ],
+    "exercises": [
+      [
+        "Project README-তে অন্তত পাঁচটি অংশ কী?",
+        "Problem, feature, technology, setup/run, demo/screenshot, tests/limitations—এগুলোর অন্তত পাঁচটি।"
+      ],
+      [
+        "Scope ছোট করে শেষ করা কেন উপকারী?",
+        "Test ও deploy করা যায় এবং completion-এর প্রমাণ থাকে।"
+      ],
+      [
+        "Screenshot দেওয়ার আগে কী যাচাই করবে?",
+        "Responsive layout, readable text, current version ও sensitive data না থাকা।"
+      ]
+    ],
+    "reading": [
+      "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
+      "https://roadmap.sh/roadmaps"
+    ]
+  },
+  {
+    "section": "10-career",
+    "slug": "02-teamwork-git-workflow",
+    "title": "দলগত কাজ, Code Review ও Git Workflow",
+    "explanation": "Team software development-এ ছোট change, পরিষ্কার commit, issue link ও review history বোঝা সহজ করে। Feature branch-এ focused কাজ করে pull request করলে reviewer উদ্দেশ্য, test result ও risk দেখতে পারেন। Review ব্যক্তিকে নয়, code-এর behavior ও maintainability-কে কেন্দ্র করে হওয়া উচিত। মতভেদ হলে requirement, reproducible example ও trade-off দিয়ে আলোচনা করো।\n\nIssue-তে expected/actual behavior, reproduction step ও environment লিখলে debugging সহজ হয়। Merge-এর আগে conflict, tests ও secret exposure যাচাই করো। ছোট pull request দ্রুত review করা যায়; unrelated formatting change একসঙ্গে মেশালে মূল পরিবর্তন বোঝা কঠিন হয়।",
+    "analogy": "একসঙ্গে বই সম্পাদনার মতো: আলাদা অংশে কাজ, reviewer-দের feedback, এরপর পরিবর্তন একত্রে প্রকাশ।",
+    "concepts": [
+      "Issue bug-কে reproducible context দেয়।",
+      "Pull request code review ও merge-এর প্রস্তাব।",
+      "Small focused change review burden কমায়।"
+    ],
+    "language": "bash",
+    "code": "git switch -c feature/add-search\ngit status\ngit add src/search.js\ngit commit -m \"Add search filtering\"\ngit push -u origin feature/add-search",
+    "mistakes": [
+      "এক branch-এ unrelated feature মেশানো।",
+      "Review feedback-কে ব্যক্তিগত আক্রমণ মনে করা।",
+      "Deploy configuration পরীক্ষা না করা।"
+    ],
+    "exercises": [
+      [
+        "Bug report-এ কী থাকবে?",
+        "Expected/actual result, reproduction steps, environment এবং sanitized error/log।"
+      ],
+      [
+        "Small pull request review করা সহজ কেন?",
+        "কম context switching-এ reviewer scope ও risk বুঝতে পারেন।"
+      ],
+      [
+        "Commit message নির্দিষ্ট হওয়া কেন ভালো?",
+        "History থেকে কী behavior বদলেছে দ্রুত বোঝা যায়।"
+      ]
+    ],
+    "reading": [
+      "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests",
+      "https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell"
+    ]
+  },
+  {
+    "section": "10-career",
+    "slug": "03-career-preparation",
+    "title": "CV, Interview ও শেখার পরিকল্পনা",
+    "explanation": "Technical CV-তে প্রাসঙ্গিক skill ও প্রমাণকে অগ্রাধিকার দাও। শুধু tool name নয়, কী বানিয়েছ, তোমার দায়িত্ব, trade-off এবং ফল কী—তা সংক্ষেপে লেখো। Experience কম হলে project, internship, open-source contribution ও coursework দেখানো যায়। যা জানো না তা বাড়িয়ে না বলে শেখার সীমা সৎভাবে ব্যাখ্যা করো।\n\nInterview-এ problem পরিষ্কার করো, constraint জিজ্ঞেস করো, baseline solution দাও, তারপর complexity ব্যাখ্যা করো। Edge case পরীক্ষা, readable naming ও dry run-এ reasoning দেখাও। Behavioral প্রশ্নে situation, responsibility, action ও result কাঠামো ব্যবহার করা যায়। Interview শেষে দুর্বল topic লিখে পরের practice plan বানাও; শুধু puzzle মুখস্থ নয়, explanation ও debugging-ও অনুশীলন করো।",
+    "analogy": "CV হলো দাবির তালিকা, আর project code ও demo হলো সেই দাবির প্রমাণ।",
+    "concepts": [
+      "CV role অনুযায়ী customize করো।",
+      "Interview-এ clarify, plan, implement, test, complexity দেখাও।",
+      "Skill gap measurable practice task-এ ভাগ করো।"
+    ],
+    "language": "python",
+    "code": "def binary_search(values, target):\n    low, high = 0, len(values) - 1\n    while low <= high:\n        middle = (low + high) // 2\n        if values[middle] == target:\n            return middle\n        if values[middle] < target:\n            low = middle + 1\n        else:\n            high = middle - 1\n    return -1\n\nvalues = [2, 5, 8, 12, 16]\nprint(binary_search(values, 12))\nprint(binary_search(values, 7))",
+    "mistakes": [
+      "CV-তে প্রমাণহীন skill rating বা অতিরঞ্জিত experience লেখা।",
+      "Problem বোঝার আগেই code শুরু করা।",
+      "এক interview-কে সামগ্রিক skill-এর চূড়ান্ত মাপ ভাবা।"
+    ],
+    "exercises": [
+      [
+        "Project bullet-কে শক্তিশালী করার নিয়ম লেখো।",
+        "Action + technology/context + ফল/impact লিখো।"
+      ],
+      [
+        "Coding problem সমাধানের পর কী করবে?",
+        "Dry run, boundary/invalid test এবং time/space complexity ব্যাখ্যা করবে।"
+      ],
+      [
+        "প্রতিদিন ৩০ মিনিট practice কীভাবে ভাগ করবে?",
+        "১০ মিনিট concept, ১৫ মিনিট problem solving, ৫ মিনিট ভুল ও learning note।"
+      ]
+    ],
+    "reading": [
+      "https://www.techinterviewhandbook.org/",
+      "https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/"
+    ]
+  }
+]
